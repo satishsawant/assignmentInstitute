@@ -44,6 +44,7 @@
     <Compile Include="Domain\Course.cs" />
     <Compile Include="Domain\CourseType.cs" />
     <Compile Include="Domain\Department.cs" />
+    <Compile Include="Domain\Student.cs" />
     <Compile Include="Domain\Teacher.cs" />
     <Compile Include="Interface\ITeacherRepository.cs" />
     <Compile Include="Interface\TEacher.cs" />
