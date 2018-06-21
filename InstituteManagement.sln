@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstituteManagement", "Inst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstituteManagementAPI", "InstituteManagementAPI\InstituteManagementAPI.csproj", "{CD702BFC-4FE7-4CBA-9424-0C95E2F5F767}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstMgmtClassLibrary", "InstMgmtClassLibrary\InstMgmtClassLibrary.csproj", "{0F502D68-F209-4FE5-9DD5-7EC59CABCD81}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CD702BFC-4FE7-4CBA-9424-0C95E2F5F767}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD702BFC-4FE7-4CBA-9424-0C95E2F5F767}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD702BFC-4FE7-4CBA-9424-0C95E2F5F767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F502D68-F209-4FE5-9DD5-7EC59CABCD81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F502D68-F209-4FE5-9DD5-7EC59CABCD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F502D68-F209-4FE5-9DD5-7EC59CABCD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F502D68-F209-4FE5-9DD5-7EC59CABCD81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
