@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Course.cs" />
+    <Compile Include="Domain\CourseType.cs" />
+    <Compile Include="Domain\Department.cs" />
     <Compile Include="Domain\Teacher.cs" />
     <Compile Include="ITeacherRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
