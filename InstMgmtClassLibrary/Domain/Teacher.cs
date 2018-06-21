@@ -21,7 +21,7 @@ namespace InstMgmtClassLibrary.Domain
         public int ZipCode { get; set; }
         public int RoleId { get; set; }
         public int DeptId { get; set; }
-
-
+        public bool IsActive { get; set; }
+        public bool IsDelete { get; set; }
     }
 }
