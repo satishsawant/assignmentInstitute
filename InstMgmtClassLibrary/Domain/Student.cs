@@ -9,5 +9,6 @@ namespace InstMgmtClassLibrary.Domain
     class Student
     {
         public int id { get; set; }
+        public string Name { get; set; }
     }
 }
