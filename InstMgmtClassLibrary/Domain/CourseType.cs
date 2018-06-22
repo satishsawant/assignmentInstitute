@@ -12,4 +12,5 @@ namespace InstMgmtClassLibrary.Domain
 
         public string CourseTypeName { get; set; }
     }
+
 }
