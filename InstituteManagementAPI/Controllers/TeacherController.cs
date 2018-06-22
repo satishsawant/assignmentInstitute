@@ -15,11 +15,6 @@ namespace InstituteManagementAPI.Controllers
     {
         ITeacherRepository _repository;
 
-
-        public TeacherController()
-        {
-            
-        }
         public TeacherController(ITeacherRepository repository)
         {
             _repository = repository;
