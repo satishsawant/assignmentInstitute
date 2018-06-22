@@ -46,9 +46,10 @@
     <Compile Include="Domain\Department.cs" />
     <Compile Include="Domain\Student.cs" />
     <Compile Include="Domain\Teacher.cs" />
+    <Compile Include="Interface\IStudentRepository.cs" />
     <Compile Include="Interface\ITeacherRepository.cs" />
-    <Compile Include="Interface\TEacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\StudentRepository.cs" />
     <Compile Include="Repository\TeacherRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
