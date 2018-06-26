@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace InstMgmtClassLibrary.Domain
 {
-    class Department
+   public class Department
     {
         public int DepartmentId { get; set; }
 
         public string DepartmentName { get; set; }
+        public DateTime DepartmentStartDate { get; set; }
+        public int StudentCapacity { get; set; }
+        public string DepartmentDetail { get; set; }
     }
 }
+ 

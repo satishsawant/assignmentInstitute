@@ -7,19 +7,18 @@ using System.Web.Http;
 using InstMgmtClassLibrary.Domain;
 using InstMgmtClassLibrary.Interfaces;
 
-
 namespace InstituteManagementAPI.Controllers
 {
-    [RoutePrefix("api/Student")]
-    public class StudentController : ApiController
+    [RoutePrefix("api/Department")]
+    public class DepartmentController : ApiController
     {
-        IStudentRepository _repository;
-        public StudentController(IStudentRepository repository)
+        IDepartmentRepository _repository;
+        public DepartmentController(IDepartmentRepository repository)
         {
             _repository = repository;
         }
         /// <summary>
-        /// Get a student by id
+        /// Get a Department by id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -27,15 +26,16 @@ namespace InstituteManagementAPI.Controllers
         [Route("Get/{id}")]
         public IHttpActionResult Get(int id)
         {
-            Student student = _repository.Get(id);
+            Department department = _repository.Get(id);
 
-            if (student == null)
+            if (department == null)
             {
                 return NotFound();
             }
 
-            return Ok(student);
+            return Ok(department);
         }
+
         /// <summary>
         ///  Get all Department list
         /// </summary>
@@ -44,33 +44,33 @@ namespace InstituteManagementAPI.Controllers
         [Route("GetAll")]
         public IHttpActionResult GetAll()
         {
-            var students = _repository.GetAll();
-            return Ok(students);
+            var departments = _repository.GetAll();
+            return Ok(departments);
         }
         /// <summary>
-        ///  Add new student
+        ///  Create new Department
         /// </summary>
-        /// <param name="student"></param>
+        /// <param name="department"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("CreateStudent")]
-        public IHttpActionResult CreateStudent(Student student)
+        [Route("CreateDepartment")]
+        public IHttpActionResult CreateDepartment(Department department)
         {
-            var NewStudent = _repository.CreateStudent(student);
-            return Ok(NewStudent);
+            var NewDepartment = _repository.CreateDepartment(department);
+            return Ok(NewDepartment);
         }
         /// <summary>
         /// Update Existing Department
         /// </summary>
-        /// <param name="student"></param>
+        /// <param name="department"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route("UpdateStudent")]
-        public IHttpActionResult UpdateStudent(Student student)
+        [Route("UpdateDepartment")]
+        public IHttpActionResult UpdateDepartment(Department department)
         {
-            _repository.UpdateStudent(student);
+            _repository.UpdateDepartment(department);
             return Ok();
         }
-
     }
 }
+

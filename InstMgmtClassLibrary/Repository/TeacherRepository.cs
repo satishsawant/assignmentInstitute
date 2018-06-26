@@ -15,37 +15,45 @@ namespace InstMgmtClassLibrary.Repository
     {
         public Teacher Get(int id)
         {
-            var teacher = new Teacher() { Id = 1, Name="satish",Address1="pune",Address2="aurangabad",DOB=DateTime.Now,Gender="Male",EmailId="sawantss.77@gmail.com",Password="test",UserName="satish",MobileNo="12345",PhoneNo="22222"};
-            //try
-            //{
-            //    using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
-            //    {
-            //        sqlconnection.Open();
-            //        SqlCommand cmd = new SqlCommand("", sqlconnection);
-            //        cmd.Parameters.Add(new SqlParameter("@Id", id));
-            //        cmd.CommandType = CommandType.StoredProcedure;
-            //        SqlDataReader sdr = cmd.ExecuteReader();
-            //        if (sdr.HasRows)
-            //        {
-            //            while (sdr.Read())
-            //            {
-            //                teacher.Name = sdr["Name"].ToString();
-            //                teacher.Address1 = sdr["Address1"].ToString();
-            //                teacher.Address2 = sdr["Address2"].ToString();
-            //                teacher.Address3 = sdr["Address3"].ToString();
-            //                teacher.MobileNo = sdr["MobileNo"].ToString();
-            //                teacher.PhoneNo = sdr["PhoneNo"].ToString();
-            //                teacher.ZipCode = Convert.ToInt32(sdr["ZipCode"]);
-            //                teacher.DeptId = Convert.ToInt32(sdr["DeptId"]);
-            //            }
-            //        }
-            //        sqlconnection.Close();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ex.Message.ToString();
-            //}
+            var teacher = new Teacher();
+            try
+            {
+                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
+                {
+                    sqlconnection.Open();
+                    SqlCommand cmd = new SqlCommand("", sqlconnection);
+                    cmd.Parameters.Add(new SqlParameter("@Id", id));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            teacher.First_Name = sdr["First_Name"].ToString();
+                            teacher.Midde_Name = sdr["Midde_Name"].ToString();
+                            teacher.Last_Name = sdr["Last_Name"].ToString();
+                            teacher.Address = sdr["Address"].ToString();
+                            teacher.ContactNo = sdr["ContactNo"].ToString();
+                            teacher.EmergencyContactId = sdr["EmergencyContactId"].ToString();
+                            teacher.City = sdr["EmergencyContactId"].ToString();
+                            teacher.Country = sdr["Country"].ToString();
+                            teacher.Pin = sdr["Pin"].ToString();
+                            teacher.BloodGroup = sdr["BloodGroup"].ToString();
+                            teacher.DOB = Convert.ToDateTime(sdr["DOB"]);
+                            teacher.Designation = sdr["Designation"].ToString();
+                            teacher.EmailID = sdr["EmailID"].ToString();
+                            teacher.Payment =Convert.ToDecimal(sdr["Payment"]);
+                            teacher.Gender = sdr["Gender"].ToString(); 
+                            
+                        }
+                    }
+                    sqlconnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
             return teacher;
         }
         
@@ -65,14 +73,22 @@ namespace InstMgmtClassLibrary.Repository
                         while (sdr.Read())
                         {
                             var teacher = new Teacher();
-                            teacher.Name = sdr["Name"].ToString();
-                            teacher.Address1 = sdr["Address1"].ToString();
-                            teacher.Address2 = sdr["Address2"].ToString();
-                            teacher.Address3 = sdr["Address3"].ToString();
-                            teacher.MobileNo = sdr["MobileNo"].ToString();
-                            teacher.PhoneNo = sdr["PhoneNo"].ToString();
-                            teacher.ZipCode = Convert.ToInt32(sdr["ZipCode"]);
-                            teacher.DeptId = Convert.ToInt32(sdr["DeptId"]);
+                            teacher.First_Name = sdr["First_Name"].ToString();
+                            teacher.Midde_Name = sdr["Midde_Name"].ToString();
+                            teacher.Last_Name = sdr["Last_Name"].ToString();
+                            teacher.Address = sdr["Address"].ToString();
+                            teacher.ContactNo = sdr["ContactNo"].ToString();
+                            teacher.EmergencyContactId = sdr["EmergencyContactId"].ToString();
+                            teacher.City = sdr["EmergencyContactId"].ToString();
+                            teacher.Country = sdr["Country"].ToString();
+                            teacher.Pin = sdr["Pin"].ToString();
+                            teacher.BloodGroup = sdr["BloodGroup"].ToString();
+                            teacher.DOB = Convert.ToDateTime(sdr["DOB"]);
+                            teacher.Designation = sdr["Designation"].ToString();
+                            teacher.EmailID = sdr["EmailID"].ToString();
+                            teacher.Payment = Convert.ToDecimal(sdr["Payment"]);
+                            teacher.Gender = sdr["Gender"].ToString();
+
                             teachers.Add(teacher);
                         }
                     }
@@ -96,19 +112,23 @@ namespace InstMgmtClassLibrary.Repository
                 {
                     sqlconnection.Open();
                     SqlCommand cmd = new SqlCommand("", sqlconnection);
-                    cmd.Parameters.Add(new SqlParameter("@Name", teacher.Name));
-                    cmd.Parameters.Add(new SqlParameter("@Gender", teacher.Gender));
-                    cmd.Parameters.Add(new SqlParameter("@EmailId", teacher.EmailId));
-                    cmd.Parameters.Add(new SqlParameter("@DOB", teacher.DOB));
-                    cmd.Parameters.Add(new SqlParameter("@Address1", teacher.Address1));
-                    cmd.Parameters.Add(new SqlParameter("@Address2", teacher.Address2));
-                    cmd.Parameters.Add(new SqlParameter("@Address3", teacher.Address3));
-                    cmd.Parameters.Add(new SqlParameter("@MobileNo", teacher.MobileNo));
-                    cmd.Parameters.Add(new SqlParameter("@DeptId", teacher.DeptId));
-                    cmd.Parameters.Add(new SqlParameter("@UserName", teacher.UserName));
+                    cmd.Parameters.Add(new SqlParameter("@Name", teacher.First_Name));
+                    cmd.Parameters.Add(new SqlParameter("@Gender", teacher.Midde_Name));
+                    cmd.Parameters.Add(new SqlParameter("@EmailId", teacher.Last_Name));
+                    cmd.Parameters.Add(new SqlParameter("@DOB", teacher.Address));
+                    cmd.Parameters.Add(new SqlParameter("@Address1", teacher.City));
+                    cmd.Parameters.Add(new SqlParameter("@Address2", teacher.Country));
+                    cmd.Parameters.Add(new SqlParameter("@Address3", teacher.Pin));
+                    cmd.Parameters.Add(new SqlParameter("@MobileNo", teacher.ContactNo));
+                    cmd.Parameters.Add(new SqlParameter("@DeptId", teacher.EmergencyContactId));
+                    cmd.Parameters.Add(new SqlParameter("@UserName", teacher.EmailID));
+                    cmd.Parameters.Add(new SqlParameter("@Password", teacher.BloodGroup));
+                    cmd.Parameters.Add(new SqlParameter("@ZipCode", teacher.Gender));
+                    cmd.Parameters.Add(new SqlParameter("@Payment", teacher.Payment));
+                    cmd.Parameters.Add(new SqlParameter("@Payment", teacher.Photo));
+                    cmd.Parameters.Add(new SqlParameter("@Resume", teacher.Resume));
+                    cmd.Parameters.Add(new SqlParameter("@UserName",teacher.UserName));
                     cmd.Parameters.Add(new SqlParameter("@Password", teacher.Password));
-                    cmd.Parameters.Add(new SqlParameter("@ZipCode", teacher.ZipCode));
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     res = cmd.ExecuteNonQuery();
                     sqlconnection.Close();
@@ -130,18 +150,23 @@ namespace InstMgmtClassLibrary.Repository
                 {
                     sqlconnection.Open();
                     SqlCommand cmd = new SqlCommand("", sqlconnection);
-                    cmd.Parameters.Add(new SqlParameter("@Name", teacher.Name));
-                    cmd.Parameters.Add(new SqlParameter("@Gender", teacher.Gender));
-                    cmd.Parameters.Add(new SqlParameter("@EmailId", teacher.EmailId));
-                    cmd.Parameters.Add(new SqlParameter("@DOB", teacher.DOB));
-                    cmd.Parameters.Add(new SqlParameter("@Address1", teacher.Address1));
-                    cmd.Parameters.Add(new SqlParameter("@Address2", teacher.Address2));
-                    cmd.Parameters.Add(new SqlParameter("@Address3", teacher.Address3));
-                    cmd.Parameters.Add(new SqlParameter("@MobileNo", teacher.MobileNo));
-                    cmd.Parameters.Add(new SqlParameter("@DeptId", teacher.DeptId));
+                    cmd.Parameters.Add(new SqlParameter("@Name", teacher.First_Name));
+                    cmd.Parameters.Add(new SqlParameter("@Gender", teacher.Midde_Name));
+                    cmd.Parameters.Add(new SqlParameter("@EmailId", teacher.Last_Name));
+                    cmd.Parameters.Add(new SqlParameter("@DOB", teacher.Address));
+                    cmd.Parameters.Add(new SqlParameter("@Address1", teacher.City));
+                    cmd.Parameters.Add(new SqlParameter("@Address2", teacher.Country));
+                    cmd.Parameters.Add(new SqlParameter("@Address3", teacher.Pin));
+                    cmd.Parameters.Add(new SqlParameter("@MobileNo", teacher.ContactNo));
+                    cmd.Parameters.Add(new SqlParameter("@DeptId", teacher.EmergencyContactId));
+                    cmd.Parameters.Add(new SqlParameter("@UserName", teacher.EmailID));
+                    cmd.Parameters.Add(new SqlParameter("@Password", teacher.BloodGroup));
+                    cmd.Parameters.Add(new SqlParameter("@ZipCode", teacher.Gender));
+                    cmd.Parameters.Add(new SqlParameter("@Payment", teacher.Payment));
+                    cmd.Parameters.Add(new SqlParameter("@Payment", teacher.Photo));
+                    cmd.Parameters.Add(new SqlParameter("@Resume", teacher.Resume));
                     cmd.Parameters.Add(new SqlParameter("@UserName", teacher.UserName));
                     cmd.Parameters.Add(new SqlParameter("@Password", teacher.Password));
-                    cmd.Parameters.Add(new SqlParameter("@ZipCode", teacher.ZipCode));
                     cmd.CommandType = CommandType.StoredProcedure;
                     res = cmd.ExecuteNonQuery();
                     sqlconnection.Close();

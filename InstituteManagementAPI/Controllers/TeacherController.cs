@@ -19,7 +19,11 @@ namespace InstituteManagementAPI.Controllers
         {
             _repository = repository;
         }
-
+        /// <summary>
+        /// Get a teacher by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("Get/{id}")]
         public IHttpActionResult Get(int id)
@@ -34,5 +38,41 @@ namespace InstituteManagementAPI.Controllers
 
             return Ok(teacher);
         }
+        /// <summary>
+        ///  Get all Teachers list
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetAll")]
+        public IHttpActionResult GetAll()
+        {
+            var teachers = _repository.GetAll();
+            return Ok(teachers);
+        }
+        /// <summary>
+        ///  Create new Department
+        /// </summary>
+        /// <param name="teacher"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("CreateTeacher")]
+        public IHttpActionResult CreateTeacher(Teacher teacher)
+        {
+            var NewTeacher = _repository.CreateTeacher(teacher);
+            return Ok(NewTeacher);
+        }
+        /// <summary>
+        /// Update Existing Teacher Info
+        /// </summary>
+        /// <param name="teacher"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("UpdateTeacher")]
+        public IHttpActionResult UpdateTeacher(Teacher teacher)
+        {
+            _repository.UpdateTeacher(teacher);
+            return Ok();
+        }
+
     }
 }

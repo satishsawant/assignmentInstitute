@@ -7,16 +7,16 @@ using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
 using InstMgmtClassLibrary.Domain;
-using InstMgmtClassLibrary.Interface;
+using InstMgmtClassLibrary.Interfaces;
+
 
 namespace InstMgmtClassLibrary.Repository
 {
-    public class StudentRepository: IStudentRepository
+    public class StudentRepository:IStudentRepository
     {
         public Student Get(int id)
         {
-            var student = new Student() {SudentId=1,Name="shital",Address="abc",City="a",State="s",CourseId=1,PinCode=2,PhoneNo="76898990889",MobileNo="65778989"};
-            //    using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
+            var student = new Student();
             try
             {
                 using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
@@ -30,17 +30,23 @@ namespace InstMgmtClassLibrary.Repository
                     {
                         while (sdr.Read())
                         {
-                            student.Name = sdr["Name"].ToString();
-                            student.Address = sdr["Address"].ToString();
+                            student.First_Name = sdr["First_Name"].ToString();
+                            student.Middle_Name = sdr["Middle_Name"].ToString();
+                            student.Last_Name = sdr["Last_Name"].ToString();
+                            student.Address1 = sdr["Address1"].ToString();
+                            student.Address2 = sdr["Address2"].ToString();
                             student.City = sdr["City"].ToString();
-                            student.State = sdr["State"].ToString();
-                            student.CourseId = Convert.ToInt32(sdr["CourseId"]);
-                            student.MobileNo = sdr["MobileNo"].ToString();
-                            student.PhoneNo = sdr["PhoneNo"].ToString();
-                            student.PinCode = Convert.ToInt32(sdr["PinCode"]);
-                            student.RoolId = Convert.ToInt32(sdr["RoolId"]);
+                            student.Pincode = sdr["Pincode"].ToString();
+                            student.Country = sdr["Country"].ToString();
+                            student.EmergencyContactNo = sdr["EmergencyContactNo"].ToString();
                             student.Gender = sdr["Gender"].ToString();
-                            student.DateOfBirth = Convert.ToDateTime(sdr["DateOfBirth"]);
+                            student.ContactNo = sdr["ContactNo"].ToString();
+                            student.BloodGroup = sdr["BloodGroup"].ToString(); ;
+                            student.Photo = sdr["Photo"].ToString();
+                            student.DeptId = Convert.ToInt32(sdr["DeptId"]); 
+                            student.DateOfBirth = Convert.ToDateTime(sdr["DateOfBirth"]); 
+                            student.ParentsName = sdr["ParentsName"].ToString();
+                            student.ParentsMobileNo = sdr["ParentsMobileNo"].ToString(); 
                         }
                     }
                     sqlconnection.Close();
@@ -50,7 +56,7 @@ namespace InstMgmtClassLibrary.Repository
             {
                 ex.Message.ToString();
             }
-            return student;
+                return student;
         }
 
         public IList<Student> GetAll()
@@ -69,17 +75,23 @@ namespace InstMgmtClassLibrary.Repository
                         while (sdr.Read())
                         {
                             var student = new Student();
-                            student.Name = sdr["Name"].ToString();
-                            student.Address = sdr["Address"].ToString();
+                            student.First_Name = sdr["First_Name"].ToString();
+                            student.Middle_Name = sdr["Middle_Name"].ToString();
+                            student.Last_Name = sdr["Last_Name"].ToString();
+                            student.Address1 = sdr["Address1"].ToString();
+                            student.Address2 = sdr["Address2"].ToString();
                             student.City = sdr["City"].ToString();
-                            student.State = sdr["State"].ToString();
-                            student.CourseId = Convert.ToInt32(sdr["CourseId"]);
-                            student.MobileNo = sdr["MobileNo"].ToString();
-                            student.PhoneNo = sdr["PhoneNo"].ToString();
-                            student.PinCode = Convert.ToInt32(sdr["PinCode"]);
-                            student.RoolId = Convert.ToInt32(sdr["RoolId"]);
+                            student.Pincode = sdr["Pincode"].ToString();
+                            student.Country = sdr["Country"].ToString();
+                            student.EmergencyContactNo = sdr["EmergencyContactNo"].ToString();
                             student.Gender = sdr["Gender"].ToString();
+                            student.ContactNo = sdr["ContactNo"].ToString();
+                            student.BloodGroup = sdr["BloodGroup"].ToString(); ;
+                            student.Photo = sdr["Photo"].ToString();
+                            student.DeptId = Convert.ToInt32(sdr["DeptId"]);
                             student.DateOfBirth = Convert.ToDateTime(sdr["DateOfBirth"]);
+                            student.ParentsName = sdr["ParentsName"].ToString();
+                            student.ParentsMobileNo = sdr["ParentsMobileNo"].ToString();
                             students.Add(student);
                         }
                     }
@@ -93,30 +105,38 @@ namespace InstMgmtClassLibrary.Repository
             return students.ToList();
         }
 
-        public int Create(Student student)
+        public int CreateStudent(Student student)
         {
             int res = 0;
             try
             {
                 using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
                 {
-                    
+
                     SqlCommand cmd = new SqlCommand("", sqlconnection);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Name",student.Name);
-                    cmd.Parameters.AddWithValue("@Address", student.Address);
+                    cmd.Parameters.AddWithValue("@First_Name", student.First_Name);
+                    cmd.Parameters.AddWithValue("@Middle_Name", student.Middle_Name);
+                    cmd.Parameters.AddWithValue("@Last_Name", student.Last_Name);
+                    cmd.Parameters.AddWithValue("@Address1", student.Address1);
+                    cmd.Parameters.AddWithValue("@Address2", student.Address2);
                     cmd.Parameters.AddWithValue("@City", student.City);
-                    cmd.Parameters.AddWithValue("@State", student.State);
-                    cmd.Parameters.AddWithValue("@CourseId", student.CourseId);
-                    cmd.Parameters.AddWithValue("@PhoneNo", student.PhoneNo);
-                    cmd.Parameters.AddWithValue("@MobileNo", student.MobileNo);
-                    cmd.Parameters.AddWithValue("@PinCode", student.PinCode);
+                    cmd.Parameters.AddWithValue("@Country", student.Country);
+                    cmd.Parameters.AddWithValue("@Pincode", student.Pincode);
                     cmd.Parameters.AddWithValue("@Gender", student.Gender);
+                    cmd.Parameters.AddWithValue("@EmergencyContactNo", student.EmergencyContactNo);
+                    cmd.Parameters.AddWithValue("@EmailID", student.EmailID);
+                    cmd.Parameters.AddWithValue("@DeptId", student.DeptId);
+                    cmd.Parameters.AddWithValue("@BloodGroup", student.BloodGroup);
                     cmd.Parameters.AddWithValue("@DateOfBirth", student.DateOfBirth);
+                    cmd.Parameters.AddWithValue("@ParentsName", student.ParentsName);
+                    cmd.Parameters.AddWithValue("@ParentsMobileNo", student.ParentsMobileNo);
+                    cmd.Parameters.AddWithValue("@UserName", student.UserName);
+                    cmd.Parameters.AddWithValue("@Password", student.Password);
                     sqlconnection.Open();
                     res = cmd.ExecuteNonQuery();
                     sqlconnection.Close();
-                    
+
                 }
             }
             catch (Exception ex)
@@ -127,7 +147,7 @@ namespace InstMgmtClassLibrary.Repository
 
         }
 
-        public int Update(Student student)
+        public int UpdateStudent(Student student)
         {
             int res = 0;
             try
@@ -136,45 +156,55 @@ namespace InstMgmtClassLibrary.Repository
                 {
                     SqlCommand cmd = new SqlCommand("", sqlconnection);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@Name", student.Name);
-                    cmd.Parameters.AddWithValue("@Address", student.Address);
+                    cmd.Parameters.AddWithValue("@First_Name", student.First_Name);
+                    cmd.Parameters.AddWithValue("@Middle_Name", student.Middle_Name);
+                    cmd.Parameters.AddWithValue("@Last_Name", student.Last_Name);
+                    cmd.Parameters.AddWithValue("@Address1", student.Address1);
+                    cmd.Parameters.AddWithValue("@Address2", student.Address2);
                     cmd.Parameters.AddWithValue("@City", student.City);
-                    cmd.Parameters.AddWithValue("@State", student.State);
-                    cmd.Parameters.AddWithValue("@CourseId", student.CourseId);
-                    cmd.Parameters.AddWithValue("@PhoneNo", student.PhoneNo);
-                    cmd.Parameters.AddWithValue("@MobileNo", student.MobileNo);
-                    cmd.Parameters.AddWithValue("@PinCode", student.PinCode);
+                    cmd.Parameters.AddWithValue("@Country", student.Country);
+                    cmd.Parameters.AddWithValue("@Pincode", student.Pincode);
+                    cmd.Parameters.AddWithValue("@Gender", student.Gender);
+                    cmd.Parameters.AddWithValue("@EmergencyContactNo", student.EmergencyContactNo);
+                    cmd.Parameters.AddWithValue("@EmailID", student.EmailID);
+                    cmd.Parameters.AddWithValue("@DeptId", student.DeptId);
+                    cmd.Parameters.AddWithValue("@BloodGroup", student.BloodGroup);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", student.DateOfBirth);
+                    cmd.Parameters.AddWithValue("@ParentsName", student.ParentsName);
+                    cmd.Parameters.AddWithValue("@ParentsMobileNo", student.ParentsMobileNo);
+                    cmd.Parameters.AddWithValue("@UserName", student.UserName);
+                    cmd.Parameters.AddWithValue("@Password", student.Password);
                     sqlconnection.Open();
                     res = cmd.ExecuteNonQuery();
                     sqlconnection.Close();
 
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.Message.ToString();
             }
             return res;
-        } 
+        }
 
-        public bool Delete(int id)
+        public bool DeleteStudent(int id)
         {
             int i = 0;
-         try
+            try
             {
-                using (var sqlconnection=new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
+                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
                 {
                     SqlCommand cmd = new SqlCommand("", sqlconnection);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@StudentId", id);
+                    cmd.Parameters.AddWithValue("@StudentID", id);
                     sqlconnection.Open();
                     i = cmd.ExecuteNonQuery();
                     sqlconnection.Close();
-                    
+
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ex.Message.ToString();
             }

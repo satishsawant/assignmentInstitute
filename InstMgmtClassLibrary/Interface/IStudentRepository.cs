@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using InstMgmtClassLibrary.Domain;
 
-namespace InstMgmtClassLibrary.Interface
+namespace InstMgmtClassLibrary.Interfaces
 {
    public interface IStudentRepository
     {
@@ -25,23 +25,20 @@ namespace InstMgmtClassLibrary.Interface
         /// </summary>
         /// <param name="student"></param>
 
-        int Update(Student student);
+        int UpdateStudent(Student student);
 
         /// <summary>
         /// create a student
         /// </summary>
         /// <param name="student"></param>
         /// <returns></returns>
-        int Create(Student student);
+        int CreateStudent(Student student);
         /// <summary>
         /// Delete a student
         /// </summary>
         /// <param name="student"></param>
         /// <returns></returns>
-        bool Delete(int id);
-
-
-
+        bool DeleteStudent(int id);
 
     }
 }
