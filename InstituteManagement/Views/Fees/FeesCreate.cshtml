@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewBag.Title = "FeesCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fees</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap-flatly.css" rel="stylesheet" />
+    <script type="text/javascript">
+       
+
+    </script>
+    <style>
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="jumbotron">
+            <h2>New Fees</h2>
+            <form action="">
+                <table class="table-responsive">
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Student ID</label>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" placeholder="Enter Student ID" name="studId" />
+
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Student Name</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="first" placeholder="Enter Student Name" name="studname">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Department/Class</label>
+                        </td>
+                        <td>
+                            <select>
+                             
+                                <option class="dropdown-item" href="#">Link 1</option>
+                                <option class="dropdown-item" href="#">Link 2</option>
+                                <option class="dropdown-item" href="#">Link 3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Amount</label>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control"  name="amount">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Collection Date</label>
+                        </td>
+                        <td>
+                            <div>
+                                <input type='datetime' class="form-control" id='datetimepicker' />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="datetime">Payment Method</label>
+                        </td>
+                        <td>
+                            <select>
+                                <option class="dropdown-item" href="#">Select</option>
+                                <option class="dropdown-item" href="#">Cash</option>
+                                <option class="dropdown-item" href="#">Cheque</option>
+                                <option class="dropdown-item" href="#">Credit Card</option>
+                                <option class="dropdown-item" href="#">Debit Card</option>
+                                <option class="dropdown-item" href="#">NetBanking</option>
+                                <option class="dropdown-item" href="#">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Payment Status</label>
+                        </td>
+                        <td>
+                            <select>
+                                <option class="dropdown-item" href="#">Select</option>
+                                <option class="dropdown-item" href="#">Paid</option>
+                                <option class="dropdown-item" href="#">Unpaid</option>
+                                <option class="dropdown-item" href="#">Pending</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="add">Payment Details </label>
+                        </td>
+                        <td>
+                            <textarea class="form-control" id="address" placeholder="Enter Address" name="addr"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <button type="submit" class="btn btn-success">SUBMIT</button>
+            <button type="button" class="btn btn-secondary">CANCEL</button>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+
+

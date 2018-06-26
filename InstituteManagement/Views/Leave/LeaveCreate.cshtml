@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "LeaveCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Leave</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap-flatly.css" rel="stylesheet" />
+    <script type="text/javascript">
+
+
+    </script>
+    <style>
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="jumbotron">
+            <h2>New Leave</h2>
+            <form action="">
+                <table class="table-responsive">
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Leave Type</label>
+                        </td>
+                        <td>
+                            <select>
+                                <option class="dropdown-item" href="#">Select</option>
+                                <option class="dropdown-item" href="#">Type 1</option>
+                                <option class="dropdown-item" href="#">Type 2</option>
+                                <option class="dropdown-item" href="#">Type 3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Leave Title</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Enter Leave Title" name="title">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Start Date</label>
+                        </td>
+                        <td>
+                            <div>
+                                <input type='datetime' class="form-control" id='datetimepicker' />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">End Date</label>
+                        </td>
+                        <td>
+                            <div>
+                                <input type='datetime' class="form-control" id='datetimepicker' />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Leave Detail</label>
+                        </td>
+                        <td>
+                            <textarea type="text" class="form-control" name="detail"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <button type="button" class="btn btn-success">SUBMIT</button>
+            <button type="button" class="btn btn-secondary">CANCEL</button>
+        </div>
+    </div>
+</body>
+</html>
+
+
