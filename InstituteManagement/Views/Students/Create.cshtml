@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "New";
+    ViewBag.Title = "New Student";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,88 +14,253 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <link href="~/Content/flatly.bootstrap.min.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-ui.min.js"></script>
-    <link href="~/Content/jquery-ui.min.css" rel="stylesheet" />
-
+    <link href="~/Content/bootstrap-flatly.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <link href="~/Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <script type="text/javascript">
         $(function () {
             $('#datetimepicker').datepicker();
-
+            language: 'pt-BR'
         });
 
     </script>
+
 </head>
 <body>
     <div class="container-fluid">
-       
+
         <div class="jumbotron">
-            <div class="col-lg-12">
-                <h2>New Student</h2>
-                <form action="">
-                    <div class="form-group col-md-12" >
-                        <label for="text">Full Name</label>
-                        <input type="text" class="form-control" id="fullname" placeholder="Enter Full Name" name="full name">
-                    </div>
-                    <div class="form-group">
-                        <label for="input">Gender</label>
-                        <div class="radio">
-                            <label><input type="radio" id="" name="option1">Male</label>
-                            <label><input type="radio" id="" name="option1">Female</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="datetime">Date Of Birth</label>
-                        <div>
-                            <input type='datetime' class="form-control" id='datetimepicker' />
-                            <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="add">Address</label>
-                        <input type="text" class="form-control" id="address" placeholder="Enter Address" name="addr">
-                    </div>
-                    <div class="form-group">
-                        <label for="add">City</label>
-                        <input type="text" class="form-control" id="city" placeholder="Enter City" name="city">
-                    </div>
-                    <div class="form-group">
-                        <label for="add">State</label>
-                        <input type="text" class="form-control" id="state" placeholder="Enter State" name="state">
-                    </div>
-                    <div class="form-group">
-                        <label for="add">Mobile No:</label>
-                        <input type="number" class="form-control" id="number" placeholder="Enter Mobile No" name="Mobile">
-                    </div>
-                    <div class="form-group">
-                        <label for="add">Pin Code</label>
-                        <input type="number" class="form-control" id="number" placeholder="Enter PinCode" name="pin">
-                    </div>
+            <h2>New Student</h2>
+            <form action="">
+                <table class="table-responsive">
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Title</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Enter Title" name="Title" />
 
-                    <div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="IsActive">Active
-                        </label>
-                    </div>
-                    <div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="IsDelete">Delete
-                        </label>
-                    </div>
-                    <div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">First Name</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="first" placeholder="Enter First Name" name="firstname">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Middle Name</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="Middle" placeholder="Enter Middle Name" name="middlename">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Last Name</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="first" placeholder="Enter Last Name" name="firstname">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Student ID</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="first" placeholder="Enter Roll NO" name="firstname">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Email</label>
+                        </td>
+                        <td>
+                            <input type="email" class="form-control" placeholder="Enter Email" name="email">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="input">Gender</label>
+                        </td>
+                        <td>
+                            <div class="radio">
+                                <label><input type="radio" id="" name="option1">Male</label>
+                                <label><input type="radio" id="" name="option1">Female</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="add">Mobile No</label>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" placeholder="Enter Mobile No">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Parents Name</label>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" id="first" placeholder="Enter Parents Name" name="firstname">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="add">Parents Mobile No</label>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" placeholder="Enter Parents Mobile No">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="datetime">Date Of Birth</label>
+                        </td>
+                        <td>
+                            <div>
+                                <input type='datetime' class="form-control" id='datetimepicker' />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="anchor">Document Submitted</span>
+                        </td>
+                        <td>
+                            <select>
+                                <option class="dropdown-item" href="#">Documents</option>
+                                <option class="dropdown-item" href="#">Adhar Card</option>
+                                <option class="dropdown-item" href="#">Pan Card</option>
+                                <option class="dropdown-item" href="#">Voting Card</option>
+                                <option class="dropdown-item" href="#">Driving Licence</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="add">Address</label>
+                        </td>
+                        <td>
+                            <textarea class="form-control" id="address" placeholder="Enter Address" name="addr"></textarea>
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="add">City</label>
+                        </td>
+                        <td>
+                            <input class="form-control" placeholder="Enter City" name="city">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="add">State</label>
+                        </td>
+                        <td>
+                            <input class="form-control" placeholder="Enter State" name="state">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="add">Country</label>
+                        </td>
+                        <td>
+                            <input class="form-control" placeholder="Enter Country" name="country">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="add">Profile Picture</label>
+                        </td>
+                        <td>
+                            <input type="file" name="img[]" class="file">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="add">Education</label>
+                        </td>
+                        <td>
+                            <input class="form-control" id="address" placeholder="Enter Education" name="addr">
+                        </td>
+                    </tr>
+                    <tr class="form-group">
+                        <td>
+                            <label for="text">Blood Group</label>
+                        </td>
+                        <td>
+                            <div>
+                                <select>
+                                    <option>Blood Group</option>
+                                    <option>A-ve</option>
+                                    <option>A+ve</option>
+                                    <option>B-ve</option>
+                                    <option>B+ve</option>
+                                    <option>O-ve</option>
+                                    <option>O+ve</option>
+                                    <option>AB-ve</option>
+                                    <option>AB+ve</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group form-check">
+                        <td>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="IsDelete">Active
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group form-check">
+                        <td>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="IsDelete">Delete
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="form-group form-check">
+                        <td>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="IsDelete"> Remember me
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
 
-                </form>
-            </div>
+            <button type="button" class="btn btn-success">SUBMIT</button>
+            <button type="button" class="btn btn-secondary">CANCEL</button>
         </div>
     </div>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

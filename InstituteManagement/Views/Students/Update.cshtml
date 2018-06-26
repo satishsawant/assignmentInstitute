@@ -1,106 +1,151 @@
 ﻿
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Update Student";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Students</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link href="~/Content/bootstrap-flatly.css" rel="stylesheet" />
+
 </head>
 <body>
-    <div class="col-md-8">
-        <div class="jumbotron" style="margin-left: 200px">
+    <div class="jumbotron">
+        <h2>Upadate Student</h2>
+        <form action="">
+            <table class="table-responsive">
+                <tr class="form-group">
+                    <td>
+                        <label for="text">First Name</label>
+                        <input type="text" class="form-control" id="first" name="firstname">
+                    </td>
+                    <td>
+                        <label for="text">Last Name</label>
+                        <input type="text" class="form-control" id="first" name="firstname">
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>
+                        <label for="text">Email</label>
+                        <input type="email" class="form-control" name="email">
+                    </td>
+                    <td>
+                        <label for="datetime">Registration Date</label>
+                        <div>
+                            <input type='datetime' class="form-control" id='datetimepicker' />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>
+                        <label for="text" style="float:left">Course</label>
+                        <input type="text" class="form-control" name="Course" />
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="float:left"></button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Link 1</a>
+                            <a class="dropdown-item" href="#">Link 2</a>
+                            <a class="dropdown-item" href="#">Link 3</a>
+                        </div>
+                    </td>
 
-            <table class="standardTable">
+                    <td>
+                        <label for="text">Roll NO</label>
+                        <input type="number" class="form-control">
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>
+                        <label for="input">Mobile No</label>
+                        <input type="number" class="form-control">
+                    </td>
+                    <td>
+                        <label for="datetime">Date Of Birth</label>
+                        <div>
+                            <input type='datetime' class="form-control" id='datetimepicker' />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>
+                        <label for="add">Parents Name</label>
+                        <input type="text" class="form-control">
+                    </td>
+                    <td>
+                        <label for="add">Parents Mobile No</label>
+                        <input type="number" class="form-control">
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td>
+                        <label for="add">Address</label>
+                        <textarea class="form-control" id="address" name="addr"></textarea>
+                    </td>
 
-                <tr>
                     <td>
-                        <label for="text">Full Name</label>
-                    </td>
-                    <td>
-                        <input type="text" data-bind="textInput: fullname" autofocus="autofocus" class="form-control input-sm" />
+                        <label for="add">Education</label>
+                        <textarea class="form-control" id="address" name="addr"></textarea>
                     </td>
                 </tr>
-                <tr>
+                <tr class="form-group">
                     <td>
-                        <label for="radio">Gender</label>
+                        <label for="text">Gender</label>
+                        <div class="radio">
+                            <label><input type="radio" id="" name="option1">Male</label>
+                            <label><input type="radio" id="" name="option1">Female</label>
+                        </div>
                     </td>
                     <td>
-                 
-                            <label>Male<input type="radio" data-bind="textInput: male" autofocus="autofocus" class="form-control input-sm" /></label><br />
-                            <label>Female<input type="radio" data-bind="textInput: female" autofocus="autofocus" class="form-control input-sm" /></label>
-                      
+                        <label for="add">Profile Picture</label>
+                        <input type="file" name="img[]" class="file">
+                    </td>
+
+                </tr>
+
+                <tr class="form-group form-check">
+                    <td>
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="IsDelete">Active
+                            </label>
+                        </div>
                     </td>
                 </tr>
-                <tr>
+                <tr class="form-group form-check">
                     <td>
-                        <label for="date">Date Of Birth</label>
-                    </td>
-                    <td>
-                        <input type="datetime" data-bind="textInput: dateofbirth" autofocus="autofocus" class="form-control input-sm" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="text">Address</label>
-                    </td>
-                    <td>
-                        <input type="text" data-bind="textInput: address" autofocus="autofocus" class="form-control input-sm" />
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="IsDelete">Delete
+                            </label>
+                        </div>
                     </td>
                 </tr>
-                <tr>
+                <tr class="form-group form-check">
                     <td>
-                        <label for="text">City</label>
-                    </td>
-                    <td>
-                        <input type="text" data-bind="textInput: city" autofocus="autofocus" class="form-control input-sm" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="text">State</label>
-                    </td>
-                    <td>
-                        <input type="text" data-bind="textInput: state" autofocus="autofocus" class="form-control input-sm" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="number">Mobile No</label>
-                    </td>
-                    <td>
-                        <input type="number" data-bind="textInput: mobile_no" autofocus="autofocus" class="form-control input-sm" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="form-check-label">Active</label>
-                    </td>
-                    <td>
-                        <input type="checkbox" data-bind="checked: Active" autofocus="autofocus" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="form-check-label">Delete</label>
-                    </td>
-                    <td>
-                        <input type="checkbox" data-bind="checked: Active" autofocus="autofocus" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label class="form-check-label"> Remember me</label>
-                    </td>
-                    <td>
-                        <input type="checkbox" data-bind="checked: Active" autofocus="autofocus" />
+                        <div class="form-group form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="IsDelete"> Remember me
+                            </label>
+                        </div>
                     </td>
                 </tr>
             </table>
+            <button type="button" class="btn btn-success">SAVE</button>
+            <button type="button" class="btn btn-secondary">CANCEL</button>
+        </form>
 
-        </div>
     </div>
 </body>
 </html>
