@@ -19,7 +19,11 @@ namespace InstituteManagementAPI.Controllers
         {
             _repository = repository;
         }
-
+        /// <summary>
+        /// Get a teacher by id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("Get/{id}")]
         public IHttpActionResult Get(int id)
@@ -34,41 +38,40 @@ namespace InstituteManagementAPI.Controllers
 
             return Ok(teacher);
         }
-
-        [HttpPost]
-        [Route("Create")]
-        public IHttpActionResult Create(Teacher teacher)
+        /// <summary>
+        ///  Get all Teachers list
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetAll")]
+        public IHttpActionResult GetAll()
         {
-           string result=_repository.CreateTeacher(teacher);
-            if ( result.Equals("Teacher Successfully Created"))
-            {
-                return Ok();
-            }
-            else { return NotFound(); }
+            var teachers = _repository.GetAll();
+            return Ok(teachers);
         }
-
+        /// <summary>
+        ///  Create new Department
+        /// </summary>
+        /// <param name="teacher"></param>
+        /// <returns></returns>
         [HttpPost]
-        [Route("Update")]
-        public IHttpActionResult Update(Teacher teacher)
+        [Route("CreateTeacher")]
+        public IHttpActionResult CreateTeacher(Teacher teacher)
         {
-            int res = _repository.UpdateTeacher(teacher);
-            if (res > 0)
-            {
-                return Ok();
-            }
-            else { return NotFound(); }
+            var NewTeacher = _repository.CreateTeacher(teacher);
+            return Ok(NewTeacher);
         }
-
+        /// <summary>
+        /// Update Existing Teacher Info
+        /// </summary>
+        /// <param name="teacher"></param>
+        /// <returns></returns>
         [HttpPost]
-        [Route("Delete")]
-        public IHttpActionResult Delete(Teacher teacher)
+        [Route("UpdateTeacher")]
+        public IHttpActionResult UpdateTeacher(Teacher teacher)
         {
-            string res = _repository.CreateTeacher(teacher);
-            if (res.Equals(""))
-            {
-                return Ok();
-            }
-            else { return NotFound(); }
+            _repository.UpdateTeacher(teacher);
+            return Ok();
         }
 
     }
