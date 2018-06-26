@@ -39,8 +39,8 @@ namespace InstituteManagementAPI.Controllers
         [Route("Create")]
         public IHttpActionResult Create(Teacher teacher)
         {
-            int res = _repository.CreateTeacher(teacher);
-            if ( res > 0)
+           string result=_repository.CreateTeacher(teacher);
+            if ( result.Equals("Teacher Successfully Created"))
             {
                 return Ok();
             }
@@ -63,8 +63,8 @@ namespace InstituteManagementAPI.Controllers
         [Route("Delete")]
         public IHttpActionResult Delete(Teacher teacher)
         {
-            int res = _repository.CreateTeacher(teacher);
-            if (res > 0)
+            string res = _repository.CreateTeacher(teacher);
+            if (res.Equals(""))
             {
                 return Ok();
             }
