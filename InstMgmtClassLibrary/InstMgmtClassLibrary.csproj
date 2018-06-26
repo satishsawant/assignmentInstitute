@@ -45,11 +45,14 @@
     <Compile Include="Domain\Course.cs" />
     <Compile Include="Domain\CourseType.cs" />
     <Compile Include="Domain\Department.cs" />
+    <Compile Include="Domain\Login.cs" />
     <Compile Include="Domain\Student.cs" />
     <Compile Include="Domain\Teacher.cs" />
+    <Compile Include="Interface\ILoginRepository.cs" />
     <Compile Include="Interface\ITeacherRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DataAccess.cs" />
+    <Compile Include="Repository\LoginRepository.cs" />
     <Compile Include="Repository\TeacherRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

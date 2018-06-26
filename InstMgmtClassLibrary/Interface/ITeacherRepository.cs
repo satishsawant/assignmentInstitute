@@ -28,7 +28,7 @@ namespace InstMgmtClassLibrary.Interfaces
         /// </summary>
         /// <param name="teacher"></param>
         /// <returns></returns>
-        int CreateTeacher(Teacher teacher);
+        string CreateTeacher(Teacher teacher);
 
         /// <summary>
         /// Update Existing Teacher

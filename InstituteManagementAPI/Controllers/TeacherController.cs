@@ -34,5 +34,42 @@ namespace InstituteManagementAPI.Controllers
 
             return Ok(teacher);
         }
+
+        [HttpPost]
+        [Route("Create")]
+        public IHttpActionResult Create(Teacher teacher)
+        {
+            int res = _repository.CreateTeacher(teacher);
+            if ( res > 0)
+            {
+                return Ok();
+            }
+            else { return NotFound(); }
+        }
+
+        [HttpPost]
+        [Route("Update")]
+        public IHttpActionResult Update(Teacher teacher)
+        {
+            int res = _repository.UpdateTeacher(teacher);
+            if (res > 0)
+            {
+                return Ok();
+            }
+            else { return NotFound(); }
+        }
+
+        [HttpPost]
+        [Route("Delete")]
+        public IHttpActionResult Delete(Teacher teacher)
+        {
+            int res = _repository.CreateTeacher(teacher);
+            if (res > 0)
+            {
+                return Ok();
+            }
+            else { return NotFound(); }
+        }
+
     }
 }

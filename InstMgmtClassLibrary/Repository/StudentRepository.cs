@@ -15,40 +15,40 @@ namespace InstMgmtClassLibrary.Repository
     {
         public Student Get(int id)
         {
-            var student = new Student() {SudentId=1,Name="shital",Address="abc",City="a",State="s",CourseId=1,PinCode=2,PhoneNo="76898990889",MobileNo="65778989"};
-            //try
-            //{
-            //    using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
-            //    {
-            //        sqlconnection.Open();
-            //        SqlCommand cmd = new SqlCommand("", sqlconnection);
-            //        cmd.Parameters.Add(new SqlParameter("@SudentId", id));
-            //        cmd.CommandType = CommandType.StoredProcedure;
-            //        SqlDataReader sdr = cmd.ExecuteReader();
-            //        if (sdr.HasRows)
-            //        {
-            //            while (sdr.Read())
-            //            {
-            //                student.Name = sdr["Name"].ToString();
-            //                student.Address = sdr["Address"].ToString();
-            //                student.City = sdr["City"].ToString();
-            //                student.State = sdr["State"].ToString();
-            //                student.CourseId = Convert.ToInt32(sdr["CourseId"]);
-            //                student.MobileNo = sdr["MobileNo"].ToString();
-            //                student.PhoneNo = sdr["PhoneNo"].ToString();
-            //                student.PinCode = Convert.ToInt32(sdr["PinCode"]);
-            //                student.RoolId = Convert.ToInt32(sdr["RoolId"]);
-            //                student.Gender = sdr["Gender"].ToString();
-            //                student.DateOfBirth = Convert.ToDateTime(sdr["DateOfBirth"]);
-            //            }
-            //        }
-            //        sqlconnection.Close();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ex.Message.ToString();
-            //}
+            var student = new Student();
+            try
+            {
+                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
+                {
+                    sqlconnection.Open();
+                    SqlCommand cmd = new SqlCommand("", sqlconnection);
+                    cmd.Parameters.Add(new SqlParameter("@SudentId", id));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            student.Name = sdr["Name"].ToString();
+                            student.Address = sdr["Address"].ToString();
+                            student.City = sdr["City"].ToString();
+                            student.State = sdr["State"].ToString();
+                            student.CourseId = Convert.ToInt32(sdr["CourseId"]);
+                            student.MobileNo = sdr["MobileNo"].ToString();
+                            student.PhoneNo = sdr["PhoneNo"].ToString();
+                            student.PinCode = Convert.ToInt32(sdr["PinCode"]);
+                            student.RoolId = Convert.ToInt32(sdr["RoolId"]);
+                            student.Gender = sdr["Gender"].ToString();
+                            student.DateOfBirth = Convert.ToDateTime(sdr["DateOfBirth"]);
+                        }
+                    }
+                    sqlconnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
             return student;
         }
 
