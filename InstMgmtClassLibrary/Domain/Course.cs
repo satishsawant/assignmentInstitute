@@ -19,4 +19,5 @@ namespace InstMgmtClassLibrary.Domain
         public int Fees { get; set; }
 
     }
+
 }

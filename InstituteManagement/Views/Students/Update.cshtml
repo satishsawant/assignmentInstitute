@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Students</title>
+</head>
+<body>
+    <div class="col-md-8">
+        <div class="jumbotron" style="margin-left: 200px">
+
+            <table class="standardTable">
+
+                <tr>
+                    <td>
+                        <label for="text">Full Name</label>
+                    </td>
+                    <td>
+                        <input type="text" data-bind="textInput: fullname" autofocus="autofocus" class="form-control input-sm" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="radio">Gender</label>
+                    </td>
+                    <td>
+                 
+                            <label>Male<input type="radio" data-bind="textInput: male" autofocus="autofocus" class="form-control input-sm" /></label><br />
+                            <label>Female<input type="radio" data-bind="textInput: female" autofocus="autofocus" class="form-control input-sm" /></label>
+                      
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="date">Date Of Birth</label>
+                    </td>
+                    <td>
+                        <input type="datetime" data-bind="textInput: dateofbirth" autofocus="autofocus" class="form-control input-sm" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="text">Address</label>
+                    </td>
+                    <td>
+                        <input type="text" data-bind="textInput: address" autofocus="autofocus" class="form-control input-sm" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="text">City</label>
+                    </td>
+                    <td>
+                        <input type="text" data-bind="textInput: city" autofocus="autofocus" class="form-control input-sm" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="text">State</label>
+                    </td>
+                    <td>
+                        <input type="text" data-bind="textInput: state" autofocus="autofocus" class="form-control input-sm" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="number">Mobile No</label>
+                    </td>
+                    <td>
+                        <input type="number" data-bind="textInput: mobile_no" autofocus="autofocus" class="form-control input-sm" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-check-label">Active</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" data-bind="checked: Active" autofocus="autofocus" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-check-label">Delete</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" data-bind="checked: Active" autofocus="autofocus" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-check-label"> Remember me</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" data-bind="checked: Active" autofocus="autofocus" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</body>
+</html>
