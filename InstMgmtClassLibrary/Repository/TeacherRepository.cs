@@ -126,7 +126,7 @@ namespace InstMgmtClassLibrary.Repository
                     cmd.Parameters.Add(new SqlParameter("@ZipCode", teacher.Gender));
                     cmd.Parameters.Add(new SqlParameter("@Payment", teacher.Payment));
                     cmd.Parameters.Add(new SqlParameter("@Payment", teacher.Photo));
-                    cmd.Parameters.Add(new SqlParameter("@Resume", teacher.Resume));
+                    cmd.Parameters.Add(new SqlParameter("@Resume", teacher.IsResume));
                     cmd.Parameters.Add(new SqlParameter("@UserName",teacher.UserName));
                     cmd.Parameters.Add(new SqlParameter("@Password", teacher.Password));
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -164,7 +164,7 @@ namespace InstMgmtClassLibrary.Repository
                     cmd.Parameters.Add(new SqlParameter("@ZipCode", teacher.Gender));
                     cmd.Parameters.Add(new SqlParameter("@Payment", teacher.Payment));
                     cmd.Parameters.Add(new SqlParameter("@Payment", teacher.Photo));
-                    cmd.Parameters.Add(new SqlParameter("@Resume", teacher.Resume));
+                    cmd.Parameters.Add(new SqlParameter("@Resume", teacher.IsResume));
                     cmd.Parameters.Add(new SqlParameter("@UserName", teacher.UserName));
                     cmd.Parameters.Add(new SqlParameter("@Password", teacher.Password));
                     cmd.CommandType = CommandType.StoredProcedure;

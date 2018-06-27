@@ -17,6 +17,7 @@ namespace InstMgmtClassLibrary.Domain
         }
 
         public int TeacherId { get; set; }
+        public int LoginId { get; set; }
 
         [Required(ErrorMessage = "First_Name is Required")]
         public string First_Name { get; set; }
@@ -50,7 +51,7 @@ namespace InstMgmtClassLibrary.Domain
         public string Designation { get; set; }
         public decimal Payment { get; set; }
         public string Photo { get; set; }
-        public string Resume { get; set; }
+        public bool IsResume { get; set; }
 
         [Required(ErrorMessage = "Select The Department")]
         public int DeptId { get; set; }
