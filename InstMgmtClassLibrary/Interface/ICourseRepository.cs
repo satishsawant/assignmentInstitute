@@ -35,5 +35,14 @@ namespace InstMgmtClassLibrary.Interfaces
         /// <param name="Course"></param>
         /// <returns></returns>
         int UpdateCourse(Course course);
+
+
+        //Course Type Interfaces
+        CourseType GetCourseType(int id);
+        IList<CourseType> GetAllCourseType();
+        int CreateCourseType(CourseType coursetype);
+        int UpdateCourseType(CourseType coursetype);
+
+
     }
 }

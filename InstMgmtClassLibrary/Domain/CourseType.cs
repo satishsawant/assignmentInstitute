@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace InstMgmtClassLibrary.Domain
 {
-    class CourseType
+    public class CourseType
     {
         public int CourseTypeId { get; set; }
 
-        public string CourseDescription { get; set; }
+        public string CourseTypeName { get; set; }
     }
 
 }

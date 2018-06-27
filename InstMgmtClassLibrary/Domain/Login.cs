@@ -21,4 +21,8 @@ namespace InstMgmtClassLibrary.Domain
         [StringLength(30, ErrorMessage = ":Less than 30 characters")]
         public string Password{get; set;}
     }
+    public class LoginResponse
+    {
+        public bool success { get; set; }
+    }
 }

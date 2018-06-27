@@ -36,8 +36,5 @@ namespace InstMgmtClassLibrary.Domain
         public string ParentsMobileNo { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-
-
-
     }
 }

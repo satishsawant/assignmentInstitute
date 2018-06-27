@@ -16,35 +16,33 @@ namespace InstMgmtClassLibrary.Repository
     {
         public Department Get(int id)
         {
-            var department = new Department() {DepartmentId=1,DepartmentName="Computer",DepartmentDetail="200 students" };
-            //try
-            //{
-            //    using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
-            //    {
-            //        sqlconnection.Open();
-            //        SqlCommand cmd = new SqlCommand("", sqlconnection);
-            //        cmd.Parameters.Add(new SqlParameter("@DepartmentId", id));
-            //        cmd.CommandType = CommandType.StoredProcedure;
-            //        SqlDataReader sdr = cmd.ExecuteReader();
-            //        if (sdr.HasRows)
-            //        {
-            //            while (sdr.Read())
-            //            {
-            //                department.DepartmentName = sdr["Name"].ToString();
-            //                department.DepartmentStartDate = Convert.ToDateTime(sdr["DepartmentStartDate"]);
-            //                department.StudentCapacity = Convert.ToInt32(sdr["StudentCapacity"]);
-            //                department.DepartmentDetail = sdr["DepartmentDetail"].ToString();
-                            
-                            
-            //            }
-            //        }
-            //        sqlconnection.Close();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ex.Message.ToString();
-            //}
+            var department = new Department();
+            try
+            {
+                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["InstCon"].ConnectionString))
+                {
+                    sqlconnection.Open();
+                    SqlCommand cmd = new SqlCommand("GetDepartment", sqlconnection);
+                    cmd.Parameters.Add(new SqlParameter("@DepartmentID", id));
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader sdr = cmd.ExecuteReader();
+                    if (sdr.HasRows)
+                    {
+                        while (sdr.Read())
+                        {
+                            department.Department_Name = sdr["Department_Name"].ToString();
+                            //department.DepartmentStartDate = Convert.ToDateTime(sdr["DepartmentStartDate"]);
+                            //department.StudentCapacity = Convert.ToInt32(sdr["StudentCapacity"]);
+                            //department.DepartmentDetail = sdr["DepartmentDetail"].ToString();
+                        }
+                    }
+                    sqlconnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.Message.ToString();
+            }
             return department;
         }
 
@@ -53,10 +51,12 @@ namespace InstMgmtClassLibrary.Repository
             List<Department> departments = new List<Department>();
             try
             {
-                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
+                int id = 0;
+                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["InstCon"].ConnectionString))
                 {
                     sqlconnection.Open();
-                    SqlCommand cmd = new SqlCommand("", sqlconnection);
+                    SqlCommand cmd = new SqlCommand("GetDepartment", sqlconnection);
+                    cmd.Parameters.Add(new SqlParameter("@DepartmentID", id));
                     cmd.CommandType = CommandType.StoredProcedure;
                     SqlDataReader sdr = cmd.ExecuteReader();
                     if (sdr.HasRows)
@@ -64,10 +64,11 @@ namespace InstMgmtClassLibrary.Repository
                         while (sdr.Read())
                         {
                             var department = new Department();
-                            department.DepartmentName = sdr["Name"].ToString();
-                            department.DepartmentStartDate = Convert.ToDateTime(sdr["DepartmentStartDate"]);
-                            department.StudentCapacity = Convert.ToInt32(sdr["StudentCapacity"]);
-                            department.DepartmentDetail = sdr["DepartmentDetail"].ToString();
+                            department.DepartmentID= Convert.ToInt32(sdr["DepartmentID"]);
+                            department.Department_Name = sdr["Department_Name"].ToString();
+                            //department.DepartmentStartDate = Convert.ToDateTime(sdr["DepartmentStartDate"]);
+                            //department.StudentCapacity = Convert.ToInt32(sdr["StudentCapacity"]);
+                            //department.DepartmentDetail = sdr["DepartmentDetail"].ToString();
                             departments.Add(department);
                         }
                     }
@@ -86,19 +87,19 @@ namespace InstMgmtClassLibrary.Repository
             int res = 0;
             try
             {
-                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
+                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["InstCon"].ConnectionString))
                 {
-
-                    SqlCommand cmd = new SqlCommand("", sqlconnection);
+                    int id = 0;
+                    SqlCommand cmd = new SqlCommand("SP_CreateDepartment", sqlconnection);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
-                    cmd.Parameters.AddWithValue("@DepartmentStartDate", department.DepartmentStartDate);
-                    cmd.Parameters.AddWithValue("@StudentCapacity", department.StudentCapacity);
-                    cmd.Parameters.AddWithValue("@DepartmentDetail", department.DepartmentDetail);
+                    cmd.Parameters.AddWithValue("@DepartmentID", id);
+                    cmd.Parameters.AddWithValue("@Department_Name", department.Department_Name);
+                    //cmd.Parameters.AddWithValue("@DepartmentStartDate", department.DepartmentStartDate);
+                    //cmd.Parameters.AddWithValue("@StudentCapacity", department.StudentCapacity);
+                    //cmd.Parameters.AddWithValue("@DepartmentDetail", department.DepartmentDetail);
                     sqlconnection.Open();
                     res = cmd.ExecuteNonQuery();
                     sqlconnection.Close();
-
                 }
             }
             catch (Exception ex)
@@ -106,7 +107,6 @@ namespace InstMgmtClassLibrary.Repository
                 ex.Message.ToString();
             }
             return res;
-
         }
 
         public int UpdateDepartment(Department department)
@@ -114,18 +114,17 @@ namespace InstMgmtClassLibrary.Repository
             int res = 0;
             try
             {
-                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
+                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["InstCon"].ConnectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("", sqlconnection);
+                    SqlCommand cmd = new SqlCommand("SP_CreateDepartment", sqlconnection);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
-                    cmd.Parameters.AddWithValue("@DepartmentStartDate", department.DepartmentStartDate);
-                    cmd.Parameters.AddWithValue("@StudentCapacity", department.StudentCapacity);
-                    cmd.Parameters.AddWithValue("@DepartmentDetail", department.DepartmentDetail);
+                    cmd.Parameters.AddWithValue("@DepartmentID", department.DepartmentID);
+                    cmd.Parameters.AddWithValue("@Department_Name", department.Department_Name); //cmd.Parameters.AddWithValue("@DepartmentStartDate", department.DepartmentStartDate);
+                    //cmd.Parameters.AddWithValue("@StudentCapacity", department.StudentCapacity);
+                    //cmd.Parameters.AddWithValue("@DepartmentDetail", department.DepartmentDetail);
                     sqlconnection.Open();
                     res = cmd.ExecuteNonQuery();
                     sqlconnection.Close();
-
                 }
             }
             catch (Exception ex)
@@ -134,10 +133,6 @@ namespace InstMgmtClassLibrary.Repository
             }
             return res;
         }
-
-       
-
-
     }
 }
 

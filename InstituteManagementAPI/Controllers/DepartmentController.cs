@@ -27,12 +27,10 @@ namespace InstituteManagementAPI.Controllers
         public IHttpActionResult Get(int id)
         {
             Department department = _repository.Get(id);
-
             if (department == null)
             {
-                return NotFound();
+                return Ok("No Departments");
             }
-
             return Ok(department);
         }
 
@@ -57,7 +55,14 @@ namespace InstituteManagementAPI.Controllers
         public IHttpActionResult CreateDepartment(Department department)
         {
             var NewDepartment = _repository.CreateDepartment(department);
-            return Ok(NewDepartment);
+            if (NewDepartment > 0)
+            {
+                return Ok("Department Added successfully");
+            }
+            else
+            {
+                return Ok("Error while adding Department");
+            }
         }
         /// <summary>
         /// Update Existing Department
@@ -68,8 +73,9 @@ namespace InstituteManagementAPI.Controllers
         [Route("UpdateDepartment")]
         public IHttpActionResult UpdateDepartment(Department department)
         {
-            _repository.UpdateDepartment(department);
-            return Ok();
+            if (_repository.UpdateDepartment(department) > 0)
+            { return Ok("Updated successfully"); }
+            else { return Ok("Error while updating"); }
         }
     }
 }

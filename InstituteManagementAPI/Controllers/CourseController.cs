@@ -14,63 +14,103 @@ namespace InstituteManagementAPI.Controllers
     {
         ICourseRepository _repository;
         public CourseController(ICourseRepository repository)
-         {
-                _repository = repository;
-         }
-        /// <summary>
-        /// Get a Course by id
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        {
+            _repository = repository;
+        }
         [HttpGet]
-            [Route("Get/{id}")]
-            public IHttpActionResult Get(int id)
+        [Route("Get/{id}")]
+        public IHttpActionResult Get(int id)
+        {
+            Course course = _repository.Get(id);
+
+            if (course == null)
             {
-                Course course = _repository.Get(id);
-
-                if (course == null)
-                {
-                    return NotFound();
-                }
-
-                return Ok(course);
+                return NotFound();
             }
 
-        /// <summary>
-        ///  Get all courses list
-        /// </summary>
-        /// <returns></returns>
+            return Ok(course);
+        }
+
+
         [HttpGet]
-            [Route("GetAll")]
-            public IHttpActionResult GetAll()
-            {
-                var courses = _repository.GetAll();
-                return Ok(courses);
-            }
-        /// <summary>
-        ///  Create new course
-        /// </summary>
-        /// <param name="Course"></param>
-        /// <returns></returns>
-           [HttpPost]
-            [Route("CreateCourse")]
-            public IHttpActionResult CreateCourse(Course course)
-            {
-                var NewCourse = _repository.CreateCourse(course);
-                return Ok(NewCourse);
-            }
-        /// <summary>
-        /// Update Existing Course
-        /// </summary>
-        /// <param name="Course"></param>
-        /// <returns></returns>
+        [Route("GetAll")]
+        public IHttpActionResult GetAll()
+        {
+            var courses = _repository.GetAll();
+            return Ok(courses);
+        }
+
+        [HttpPost]
+        [Route("CreateCourse")]
+        public IHttpActionResult CreateCourse(Course course)
+        {
+            var NewCourse = _repository.CreateCourse(course);
+            return Ok(NewCourse);
+        }
+
         [HttpPost]
         [Route("UpdateCourse")]
         public IHttpActionResult UpdateCourse(Course course)
-         {
-           _repository.UpdateCourse(course);
+        {
+            _repository.UpdateCourse(course);
             return Ok();
-         }
         }
+
+        //Course Type Details
+
+        [HttpGet]
+        [Route("GetCourseType/{id}")]
+        public IHttpActionResult GetCourseType(int id)
+        {
+            CourseType course = _repository.GetCourseType(id);
+
+            if (course == null)
+            {
+                return Ok("No Course Found");
+            }
+
+            return Ok(course);
+        }
+
+        [HttpGet]
+        [Route("GetAllCourseType")]
+        public IHttpActionResult GetAllCourseType()
+        {
+            var courses = _repository.GetAllCourseType();
+            return Ok(courses);
+        }
+
+        [HttpPost]
+        [Route("CreateCourseType")]
+        public IHttpActionResult CreateCourseType(CourseType course)
+        {
+            int success = _repository.CreateCourseType(course);
+            if (success > 0)
+            {
+                return Ok("Course Type Added Successfully");
+            }
+            else
+            {
+                return Ok("Error Adding Course Type");
+            }
+
+        }
+
+        [HttpPost]
+        [Route("UpdateCourseType")]
+        public IHttpActionResult UpdateCourseType(CourseType course)
+        {
+            int success = _repository.CreateCourseType(course);
+            if (success > 0)
+            {
+                return Ok("Course Type Updated Successfully");
+            }
+            else
+            {
+                return Ok("Error updating Course Type");
+            }
+
+        }
+    }
 }
 
