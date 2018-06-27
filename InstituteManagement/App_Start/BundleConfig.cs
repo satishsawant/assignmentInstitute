@@ -25,10 +25,8 @@ namespace InstituteManagement
                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-flatly.css",
-                      //"~/Content/bootstrap.css",
-                      "~/Content/site.css"
-                      ));
+                      "~/Content/bootstrap.css",
+                      "~/Content/site.css"));
         }
     }
 }
