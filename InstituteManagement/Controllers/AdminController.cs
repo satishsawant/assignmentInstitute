@@ -17,5 +17,33 @@ namespace InstituteManagement.Controllers
         {
             return View();
         }
+        public ActionResult StudentInfo()
+        {
+            return View();
+        }
+        public ActionResult DepartmentInfo()
+        {
+            return View();
+        }
+        public ActionResult CourseType()
+        {
+            return View();
+        }
+        public ActionResult CourseMst()
+        {
+            return View();
+        }
+        public ActionResult LeaveType()
+        {
+            return View();
+        }
+        public ActionResult Leave()
+        {
+            return View();
+        }
+        public ActionResult Fees()
+        {
+            return View();
+        }
     }
 }
