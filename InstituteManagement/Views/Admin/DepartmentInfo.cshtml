@@ -23,6 +23,43 @@
                     });
                 }
             });
+            function Get() {
+                var dept = {};
+                user.DeptName = $("#deptname").val();
+                user.DepDetail = $("#deptdetail").val();
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Department',
+                    data: { ID: id },
+                    cache: false,
+                    success: function (data) {
+                        alert("success");
+                    },
+                    error: function () {
+                        alert('error');
+
+                    }
+                });
+            }
+            $(function () {
+                $("#Add").bind("click", function () {
+                    var dept = {};
+                    user.DeptName = $("#deptname").val();
+                    user.DepDetail = $("#deptdetail").val();
+                    $.ajax({
+                        type: "POST",
+                        url: "",
+                        data: '{dept: ' + JSON.stringify(user) + '}',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            alert("User has been added successfully.");
+                            window.location.reload();
+                        }
+                    });
+                    return false;
+                });
+            });
     </script>
 </head>
 <body>
@@ -79,14 +116,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="first" placeholder="Enter Departmet Name" name="firstname" required>
+                            <input type="text" class="form-control" id="deptname" placeholder="Enter Departmet Name" name="firstname" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="address" placeholder="Enter Department Details" name="addr" required></textarea>
+                            <textarea class="form-control" id="deptdetail" placeholder="Enter Department Details" name="details" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer ">
-                        <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Create</button>
+                        <button type="submit" value="submit" class="btn btn-warning btn-lg" onclick="Add()" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Create</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
@@ -103,10 +140,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="first" placeholder="Enter Departmet Name" name="firstname" required>
+                            <input type="text" class="form-control" id="deptname" placeholder="Enter Departmet Name" name="firstname" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="address" placeholder="Enter Department Details" name="addr" required></textarea>
+                            <textarea class="form-control" id="details" placeholder="Enter Department Details" name="details" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer ">

@@ -58,6 +58,7 @@ namespace InstituteManagementAPI.Controllers
         {
             var NewDepartment = _repository.CreateDepartment(department);
             return Ok(NewDepartment);
+
         }
         /// <summary>
         /// Update Existing Department

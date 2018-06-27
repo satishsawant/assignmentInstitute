@@ -81,30 +81,30 @@ namespace InstMgmtClassLibrary.Repository
             return departments.ToList();
         }
 
-        public int CreateDepartment(Department department)
+        public int CreateDepartment(Department department) 
         {
-            int res = 0;
-            try
-            {
-                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
-                {
+            //int res = 0;
+            //try
+            //{
+            //    using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings[""].ConnectionString))
+            //    {
 
-                    SqlCommand cmd = new SqlCommand("", sqlconnection);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
-                    cmd.Parameters.AddWithValue("@DepartmentStartDate", department.DepartmentStartDate);
-                    cmd.Parameters.AddWithValue("@StudentCapacity", department.StudentCapacity);
-                    cmd.Parameters.AddWithValue("@DepartmentDetail", department.DepartmentDetail);
-                    sqlconnection.Open();
-                    res = cmd.ExecuteNonQuery();
-                    sqlconnection.Close();
+            //        SqlCommand cmd = new SqlCommand("", sqlconnection);
+            //        cmd.CommandType = CommandType.StoredProcedure;
+            //        cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
+            //        cmd.Parameters.AddWithValue("@DepartmentStartDate", department.DepartmentStartDate);
+            //        cmd.Parameters.AddWithValue("@StudentCapacity", department.StudentCapacity);
+            //        cmd.Parameters.AddWithValue("@DepartmentDetail", department.DepartmentDetail);
+            //        sqlconnection.Open();
+            //        res = cmd.ExecuteNonQuery();
+            //        sqlconnection.Close();
 
-                }
-            }
-            catch (Exception ex)
-            {
-                ex.Message.ToString();
-            }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    ex.Message.ToString();
+            //}
             return res;
 
         }
