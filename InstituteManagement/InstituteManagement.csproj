@@ -121,6 +121,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CourseMstController.cs" />
     <Compile Include="Controllers\CourseTypeController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LeaveController.cs" />
     <Compile Include="Controllers\LeaveTypeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,6 +139,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\InstituteManagement.dll" />
+    <Content Include="bin\InstituteManagement.pdb" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-flatly.css" />
     <Content Include="Content\bootstrap.css" />
@@ -206,10 +210,20 @@
     <Content Include="Views\LeaveType\LeaveTypeList.cshtml" />
     <Content Include="Views\ExpenseType\ExpenseTypeCreate.cshtml" />
     <Content Include="Views\ExpenseType\ExpenseTypeList.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\TeacherInfo.cshtml" />
+    <Content Include="Views\Login\Contact.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Admin\StudentInfo.cshtml" />
+    <Content Include="Views\Admin\DepartmentInfo.cshtml" />
+    <Content Include="Views\Admin\CourseType.cshtml" />
+    <Content Include="Views\Admin\CourseMst.cshtml" />
+    <Content Include="Views\Admin\LeaveType.cshtml" />
+    <Content Include="Views\Admin\Leave.cshtml" />
+    <Content Include="Views\Admin\Fees.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="bin\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
