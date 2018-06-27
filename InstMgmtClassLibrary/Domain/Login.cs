@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InstMgmtClassLibrary.Domain
 {
-   public class Login
+   public class LoginRequestModel
     {
         [Required(ErrorMessage = "User Name Required")]
         [DisplayName("Username")]
@@ -20,9 +20,14 @@ namespace InstMgmtClassLibrary.Domain
         [DisplayName("Password")]
         [StringLength(30, ErrorMessage = ":Less than 30 characters")]
         public string Password{get; set;}
+        public int RoleId { get; set; }
     }
     public class LoginResponse
     {
-        public bool success { get; set; }
+        public string success { get; set; }
+        public IList<Teacher> teacherData { get; set; }
+        public IList<Student> studentData { get; set; }
+        public int RoleId { get; set; }
+        public string error { get; set; }
     }
 }

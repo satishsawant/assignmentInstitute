@@ -26,28 +26,39 @@ namespace InstituteManagementAPI.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("Get/{id}")]
-        public IHttpActionResult Get(int id)
+        public HttpResponseMessage Get(int id)
         {
-
+            TeacherResponseModel response = new TeacherResponseModel();
             Teacher teacher = _repository.Get(id);
-
             if (teacher == null)
             {
-                return NotFound();
+                response.Success = "false";
+            }
+            else { response.Success = "true";
+                response.Teacher.Add(teacher);
             }
 
-            return Ok(teacher);
+            return Request.CreateResponse(HttpStatusCode.OK, response);
         }
         /// <summary>
         ///  Get all Teachers list
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetAll")]
-        public IHttpActionResult GetAll()
+        [Route("GetTeacher/{id}")]
+        public HttpResponseMessage GetTeacher(int id)
         {
-            var teachers = _repository.GetAll();
-            return Ok(teachers);
+            TeacherResponseModel response = new TeacherResponseModel();
+            IList<Teacher> teachers = _repository.GetTeacher(id);
+            if (teachers.Count>0)
+            {
+                response.Success = "true";
+                response.Teacher = teachers;
+            }
+            else { response.Success = "false";
+                response.Teacher = teachers;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, response);
         }
         /// <summary>
         ///  Create new Department
@@ -56,10 +67,10 @@ namespace InstituteManagementAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("CreateTeacher")]
-        public IHttpActionResult CreateTeacher(Teacher teacher)
+        public bool CreateTeacher(Teacher teacher)
         {
-            var NewTeacher = _repository.CreateTeacher(teacher);
-            return Ok(NewTeacher);
+            var success = _repository.CreateTeacher(teacher);
+            return Convert.ToBoolean(success);
         }
         /// <summary>
         /// Update Existing Teacher Info
@@ -68,10 +79,10 @@ namespace InstituteManagementAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("UpdateTeacher")]
-        public IHttpActionResult UpdateTeacher(Teacher teacher)
+        public bool UpdateTeacher(Teacher teacher)
         {
-            _repository.UpdateTeacher(teacher);
-            return Ok();
+            var success= _repository.UpdateTeacher(teacher);
+            return Convert.ToBoolean(success);
         }
 
     }

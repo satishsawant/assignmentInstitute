@@ -91,7 +91,7 @@ namespace InstMgmtClassLibrary.Repository
 
         public int Create(Leave leave)
         {
-            int result;
+            int result=0;
             try
             {
                 using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["InstCon"].ConnectionString))

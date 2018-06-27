@@ -41,7 +41,7 @@ namespace InstMgmtClassLibrary.Domain
 
         public string Pin { get; set; }
         public string Country { get; set; }
-        public string EmergencyContactId { get; set; }
+        public string EmergencyContactNo { get; set; }
         [Required(ErrorMessage = "Mobile Number is Required")]
         public string ContactNo { get; set; }
         [Required(ErrorMessage = "EmailId is Required")]
@@ -65,5 +65,13 @@ namespace InstMgmtClassLibrary.Domain
         [Required(ErrorMessage = "Password is Required")]
         [StringLength(11, MinimumLength = 5, ErrorMessage = "Minimum Length of Password is 5 letters or Max Length is of 11 letters..")]
         public string Password { get; set; }
+
+        public int JobType { get; set; }
+        public int WorkType { get; set; }
+    }
+    public class TeacherResponseModel
+    {
+        public string Success { get; set; }
+        public IList<Teacher> Teacher { get; set; }
     }
 }

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -13,50 +15,51 @@ namespace InstMgmtClassLibrary.Repository
 {
     public class LoginRepository : ILoginRepository 
     {
-        public string Login(Login log)
+        public LoginResponse Login(LoginRequestModel log)
         {
-            string JsonStr;
-            StringBuilder sb = new StringBuilder();
-            string RoleName = "";
-            int RoleId, LoginId;
+            
+            LoginResponse response = new LoginResponse();
             try
             {
-                SqlConnection connection = new SqlConnection(
-                System.Configuration.ConfigurationManager.ConnectionStrings["InstCon"].ConnectionString);
-                connection.Open();
-                SqlCommand command = new SqlCommand("Select * from Login where Username=@username And Password=@password", connection);
-                command.Parameters.AddWithValue("@username", log.Username);
-                command.Parameters.AddWithValue("@password", log.Password);
-                SqlDataReader sdr = command.ExecuteReader();
-                if (sdr.HasRows)
+                int LoginId;
+                using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["InstCon"].ConnectionString))
                 {
-                    while (sdr.Read())
+                    sqlconnection.Open();
+                    SqlCommand command = new SqlCommand("SP_LoginInfo", sqlconnection);
+                    command.Parameters.AddWithValue("@Username", log.Username);
+                    command.Parameters.AddWithValue("@password", log.Password);
+                    command.CommandType = CommandType.StoredProcedure;
+                    SqlDataReader sdr = command.ExecuteReader();
+                    if (sdr.HasRows)
                     {
-                        RoleName = sdr["RoleType"].ToString();
-                        RoleId = Convert.ToInt32(sdr["RoleId"]);
-                        LoginId = Convert.ToInt32(sdr["LoginId"]);
-                        sb.Append(RoleName);
-                        sb.Append(LoginId);
-                        if (RoleName.Equals("Teacher"))
+                        while (sdr.Read())
                         {
-                            TeacherRepository tr = new TeacherRepository();
-                            Teacher t = tr.Get(LoginId);
-                            sb.Append(t.ToString());
-                        }
-                        else if (RoleName.Equals("Student"))
-                        {
-                            //TeacherRepository tr = new TeacherRepository();
-                            //Student s = tr.Get(LoginId);
+                            LoginId = Convert.ToInt32(sdr["LoginID"]);
+                            if (log.RoleId == 2)
+                            {
+                                StudentRepository sr = new StudentRepository();
+                                response.success = "true";
+                                response.studentData = sr.GetStudent(LoginId);
+                                response.RoleId= Convert.ToInt32(sdr["RoleID"]);
+                            }
+                            else if (log.RoleId == 3)
+                            {
+                                TeacherRepository tr = new TeacherRepository();
+                                response.success = "true";
+                                response.teacherData = tr.GetTeacher(LoginId);
+                                response.RoleId = Convert.ToInt32(sdr["RoleID"]);
+                            }
                         }
                     }
+                    else { response.success = "false"; }
                 }
-                connection.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                
+                response.success = "false";
+                response.error = ex.Message;
             }
-            return sb.ToString();
+            return response;
         }
     }
 }

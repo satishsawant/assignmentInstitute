@@ -9,6 +9,6 @@ namespace InstMgmtClassLibrary.Interfaces
 {
     public interface ILoginRepository
     {
-        string Login(Login log);
+        LoginResponse Login(LoginRequestModel log);
     }
 }

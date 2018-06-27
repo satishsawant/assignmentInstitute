@@ -23,29 +23,44 @@ namespace InstituteManagementAPI.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet]
-        [Route("Get/{id}")]
-        public IHttpActionResult Get(int id)
-        {
-            Student student = _repository.Get(id);
-
-            if (student == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(student);
-        }
+        //[HttpGet]
+        //[Route("Get/{id}")]
+        //public HttpResponseMessage Get(int id)
+        //{
+        //    StudentResponseModel responseModel = new StudentResponseModel();
+        //    Student student = _repository.Get(id);
+        //    if (student == null)
+        //    {
+        //        responseModel.Success = "false";
+        //    }
+        //    else
+        //    {
+        //        responseModel.Success = "true";
+        //        responseModel.Student.Add(student);
+        //    }
+        //    return Request.CreateResponse(HttpStatusCode.OK, responseModel);
+        //}
         /// <summary>
         ///  Get all Department list
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Route("GetAll")]
-        public IHttpActionResult GetAll()
+        [Route("GetStudent/{id}")]
+        public HttpResponseMessage GetStudent(int id)
         {
-            var students = _repository.GetAll();
-            return Ok(students);
+            StudentResponseModel responseM = new StudentResponseModel();
+            IList<Student> students = _repository.GetStudent(id);
+            if (students.Count>0)
+            {
+                responseM.Success= "true";
+                responseM.Student = students;
+            }
+            else
+            {
+                responseM.Success = "false";
+                responseM.Student = students;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, responseM);
         }
         /// <summary>
         ///  Add new student
@@ -54,10 +69,10 @@ namespace InstituteManagementAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("CreateStudent")]
-        public IHttpActionResult CreateStudent(Student student)
+        public bool CreateStudent(Student student)
         {
-            var NewStudent = _repository.CreateStudent(student);
-            return Ok(NewStudent);
+            var success = _repository.CreateStudent(student);
+            return Convert.ToBoolean(success);
         }
         /// <summary>
         /// Update Existing Department
@@ -66,10 +81,10 @@ namespace InstituteManagementAPI.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("UpdateStudent")]
-        public IHttpActionResult UpdateStudent(Student student)
+        public bool UpdateStudent(Student student)
         {
-            _repository.UpdateStudent(student);
-            return Ok();
+            var success=_repository.UpdateStudent(student);
+            return Convert.ToBoolean(success);
         }
 
     }

@@ -14,12 +14,12 @@ namespace InstMgmtClassLibrary.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Student Get(int id);
+        //Student Get(int id);
         /// <summary>
         ///  Get a list of all active Students with all mapped properties
         /// </summary>
         /// <returns></returns>
-        IList<Student> GetAll();
+        IList<Student> GetStudent(int id);
         /// <summary>
         ///  Update the student
         /// </summary>

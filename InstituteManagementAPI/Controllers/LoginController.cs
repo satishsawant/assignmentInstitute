@@ -19,14 +19,12 @@ namespace InstituteManagementAPI.Controllers
             _loginRepo = loginRepo;
         }
 
-        public IHttpActionResult LoginResult(Login log)
+        [Route("LoginResult")]
+        [HttpPost]
+        public HttpResponseMessage LoginResult(LoginRequestModel log)
         {
-            string result = _loginRepo.Login(log);
-            if (!result.Equals(""))
-            {
-                return Ok(result);
-            }
-            else { return NotFound(); }
+            LoginResponse response = _loginRepo.Login(log);
+            return Request.CreateResponse(HttpStatusCode.OK, response);
         }
 
     }

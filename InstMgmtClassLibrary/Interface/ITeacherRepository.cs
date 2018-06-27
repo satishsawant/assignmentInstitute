@@ -21,7 +21,7 @@ namespace InstMgmtClassLibrary.Interfaces
         /// Get all teacher list
         /// </summary>
         /// <returns></returns>
-        IList<Teacher> GetAll();
+        IList<Teacher> GetTeacher(int id);
 
         /// <summary>
         /// Create new teacher
