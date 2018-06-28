@@ -42,17 +42,17 @@
                     </a>
                     <ul class="sidenav-second-level collapse" id="collapseExamplePages">
                         <li>
-                            <a href="@Url.Action("List", "Students")">List</a>
+                            <a href="@Url.Action("StudentInfo", "Admin")">List</a>
+                        </li>
+                        @*<li>
+                            <a href="@Url.Action("Create", "Admin")">Create</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Create", "Students")">Create</a>
+                            <a href="@Url.Action("Update", "Admin")">Update</a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Update", "Students")">Update</a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Delete", "Students")">Delete</a>
-                        </li>
+                            <a href="@Url.Action("Delete", "Admin")">Delete</a>
+                        </li>*@
                     </ul>
                 </li>
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
@@ -169,7 +169,7 @@
         <script src="js/sb-admin.min.js"></script>
     </div>
 
-    <div class="container body-content"> 
+    <div class="body-content"> 
         @RenderBody()
 
     </div>

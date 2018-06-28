@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "DepartmentInfo";
+    Layout = "~/Views/Admin/Dashboard.cshtml";
 }
 
 <!------ Include the above in your HEAD tag ---------->
@@ -29,7 +30,7 @@
                 user.DepDetail = $("#deptdetail").val();
                 $.ajax({
                     type: 'GET',
-                    url: '/api/Department',
+                    url: '/api/Department/Depart',
                     data: { ID: id },
                     cache: false,
                     success: function (data) {

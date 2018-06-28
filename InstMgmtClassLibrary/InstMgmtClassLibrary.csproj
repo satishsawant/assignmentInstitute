@@ -47,11 +47,13 @@
     <Compile Include="Domain\Department.cs" />
     <Compile Include="Domain\Leave.cs" />
     <Compile Include="Domain\Login.cs" />
+    <Compile Include="Domain\Role.cs" />
     <Compile Include="Domain\Student.cs" />
     <Compile Include="Domain\Teacher.cs" />
     <Compile Include="Interface\ICourseRepository.cs" />
     <Compile Include="Interface\IDepartmentRepository.cs" />
     <Compile Include="Interface\ILoginRepository.cs" />
+    <Compile Include="Interface\IRoleRepository.cs" />
     <Compile Include="Interface\IStudentRepository.cs" />
     <Compile Include="Interface\ITeacherRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="Repository\DepartmentRepository.cs" />
     <Compile Include="Repository\LeaveRepository.cs" />
     <Compile Include="Repository\LoginRepository.cs" />
+    <Compile Include="Repository\RoleRepository.cs" />
     <Compile Include="Repository\StudentRepository.cs" />
     <Compile Include="Repository\TeacherRepository.cs" />
   </ItemGroup>

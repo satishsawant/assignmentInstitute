@@ -39,6 +39,7 @@ namespace InstituteManagementAPI
             kernel.Bind<IDepartmentRepository>().To<DepartmentRepository>();
             kernel.Bind<ICourseRepository>().To<CourseRepository>();
             kernel.Bind<ILoginRepository>().To<LoginRepository>();
+            kernel.Bind<IRoleRepository>().To<RoleRepository>();
             return kernel;
         }
     }

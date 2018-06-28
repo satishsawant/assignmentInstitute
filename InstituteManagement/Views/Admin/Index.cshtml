@@ -1,309 +1,441 @@
 ﻿
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Admin/Dashboard.cshtml";
 }
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="sumit kumar">
-    <title>admin-template</title>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
-</head>
-<body>
-    <!--=============================
-                                               NAVIGATION
-                                     =============================-->
-    <!--top nav start=======-->
-    <nav class="navbar navbar-inverse top-bar navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button> <span class="menu-icon" id="menu-icon"><i class="fa fa-times" aria-hidden="true" id="chang-menu-icon"></i></span>
-                @*<a class="navbar-brand" href="#"><img src="https://lh3.googleusercontent.com/-N4NB2F966TU/WM7V1KYusRI/AAAAAAAADtA/fPvGVNzOkCo7ZMqLI6pPITE9ZF7NONmawCJoC/w185-h40-p-rw/logo.png" width="90%"> </a>*@
-            </div>
-            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-                <form class="navbar-form navbar-left">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit">
-                                <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                <ul class="nav navbar-nav">
-                    <li class=""><a href="#"><i class="fa fa-refresh"></i> Start Tour</a> </li>
-                    <li class=""><a href="#"><i class="fa fa-volume-up"></i></a> </li>
-                    <li class=""><a href="#"><i class="fa fa-envelope"></i> <span class="badge">5</span></a> </li>
-                    <li class=""><a href="#"><i class="fa fa-bell"></i> <span class="badge">9</span></a> </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            Sumit
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
-                            <li> <a href="#"><i class="fa fa-cog"></i> Setting</a> </li>
-                            <li> <a href="#"><i class="fa fa-power-off"></i> Logout</a> </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!--    top nav end===========-->
-    <div class="wrapper" id="wrapper">
-        <div class="left-container" id="left-container">
-            <!-- begin SIDE NAV USER PANEL -->
-            <div class="left-sidebar" id="show-nav">
-                <ul id="side" class="side-nav">
-                    <li class="panel">
-                        <a id="panel1" href="javascript:;" data-toggle="collapse" data-target="#Dashboard">
-                            <i class="fa fa-dashboard"></i> Dashboard
-                            <i class="fa fa-chevron-left pull-right" id="arow1"></i>
-                        </a>
-                        <ul class="collapse nav" id="Dashboard">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel2" href="javascript:;" data-toggle="collapse" data-target="#charts">
-                            <i class="fa fa-bar-chart-o"></i> Teacher
-                            <i class="fa fa-chevron-left pull-right" id="arow2"></i>
-                        </a>
-                        <ul class="collapse nav" id="charts">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Add Teacher</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel3" href="javascript:;" data-toggle="collapse" data-target="#calendar">
-                            <i class="fa fa-calendar"></i> calendar
-                            <span class="label label-danger">new event</span> <i class="fa fa-chevron-left pull-right" id="arow3"></i>
-                        </a>
-                        <ul class="collapse nav" id="calendar">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel4" href="javascript:;" data-toggle="collapse" data-target="#clipboard">
-                            <i class="fa fa-clipboard"></i> clipboard
-                            <i class="fa fa fa-chevron-left pull-right" id="arow4"></i>
-                        </a>
-                        <ul class="collapse nav" id="clipboard">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel5" href="javascript:;" data-toggle="collapse" data-target="#edit">
-                            <i class="fa fa-edit"></i> edit
-                            <i class="fa fa fa-chevron-left pull-right" id="arow5"></i>
-                        </a>
-                        <ul class="collapse nav" id="edit">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel6" href="javascript:;" data-toggle="collapse" data-target="#inbox">
-                            <i class="fa fa-inbox"></i> inbox
-                            <span class="label label-primary">new msz</span> <i class="fa fa fa-chevron-left pull-right" id="arow6"></i>
-                        </a>
-                        <ul class="collapse nav" id="inbox">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel7" href="javascript:;" data-toggle="collapse" data-target="#cogs">
-                            <i class="fa fa-cogs"></i> cogs
-                            <span class="label label-warning">Warning</span> <i class="fa fa fa-chevron-left pull-right" id="arow7"></i>
-                        </a>
-                        <ul class="collapse nav" id="cogs">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel8" href="javascript:;" data-toggle="collapse" data-target="#paper">
-                            <i class="fa fa-paper-plane"></i> paper
-                            <i class="fa fa fa-chevron-left pull-right" id="arow8"></i>
-                        </a>
-                        <ul class="collapse nav" id="paper">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel9" href="javascript:;" data-toggle="collapse" data-target="#trash">
-                            <i class="fa fa-trash"></i> Trash
-                            <i class="fa fa fa-chevron-left pull-right" id="arow9"></i>
-                        </a>
-                        <ul class="collapse nav" id="trash">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel10" href="javascript:;" data-toggle="collapse" data-target="#btc">
-                            <i class="fa fa-btc"></i> paper
-                            <i class="fa fa fa-chevron-left pull-right" id="arow10"></i>
-                        </a>
-                        <ul class="collapse nav" id="btc">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                    <li class="panel">
-                        <a id="panel11" href="javascript:;" data-toggle="collapse" data-target="#pie-Chart">
-                            <i class="fa fa-bar-chart"></i> Chart
-                            <span class="label label-success">Supper</span> <i class="fa fa fa-chevron-left pull-right" id="arow11"></i>
-                        </a>
-                        <ul class="collapse nav" id="pie-Chart">
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Flot Charts</a> </li>
-                            <li> <a href="#"><i class="fa fa-angle-double-right"></i> Morris.js</a> </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- END SIDE NAV USER PANEL -->
-        </div>
-        <div class="right-container" id="right-container">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4">
-                        <ul class="breadcrumb">
-                            <li><i class="fa fa-home"></i><a href="#"> Home</a></li>
-                            <li class="active">Dashboard</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-8">
-                        <ul class="list-inline pull-right mini-stat">
-                            <li>
-                                <h5>LIKES <span class="stat-value color-blue"><i class="fa fa-plus-circle"></i> 81,450</span></h5>
-
-                            </li>
-                            <li>
-                                <h5>SUBSCRIBERS <span class="stat-value color-green"><i class="fa fa-plus-circle"></i> 150,743</span></h5>
-
-                            </li>
-                            <li>
-                                <h5>CUSTOMERS <span class="stat-value color-orang"><i class="fa fa-plus-circle"></i> 43,748</span></h5>
-
-                            </li>
-                        </ul>
-                    </div>
+  <!-- Breadcrumbs-->
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active">My Dashboard</li>
+</ol>
+<!-- Icon Cards-->
+<div class="row">
+    <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-primary o-hidden h-100">
+            <div class="card-body">
+                <div class="card-body-icon">
+                    <i class="fa fa-fw fa-comments"></i>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="main-header">
-                            <h2>DASHBOARD</h2>
-                            <em>the first priority information</em>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row padding-top">
-                    <div class="col-md-6"><img src="https://www.amcharts.com/wp-content/uploads/2016/03/demo_6559_light-1.jpg" class="img-responsive"></div>
-                    <div class="col-md-6"><img src="https://www.amcharts.com/wp-content/uploads/2013/12/demo_7404_light.jpg" class="img-responsive"></div>
-                </div>
-
-                <div class="row padding-top">
-                    <div class="col-md-6"><img src="https://www.amcharts.com/wp-content/uploads/2013/12/demo_7406_light.jpg" class="img-responsive"></div>
-                    <div class="col-md-6"><img src="https://www.amcharts.com/wp-content/uploads/2013/12/demo_7403_light.jpg" class="img-responsive"></div>
-                </div>
+                <div class="mr-5">26 New Messages!</div>
             </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">View Details</span>
+                <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                </span>
+            </a>
         </div>
     </div>
-    <script src="js/jquery-3.1.1.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-warning o-hidden h-100">
+            <div class="card-body">
+                <div class="card-body-icon">
+                    <i class="fa fa-fw fa-list"></i>
+                </div>
+                <div class="mr-5">11 New Tasks!</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">View Details</span>
+                <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-success o-hidden h-100">
+            <div class="card-body">
+                <div class="card-body-icon">
+                    <i class="fa fa-fw fa-shopping-cart"></i>
+                </div>
+                <div class="mr-5">123 New Orders!</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">View Details</span>
+                <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-danger o-hidden h-100">
+            <div class="card-body">
+                <div class="card-body-icon">
+                    <i class="fa fa-fw fa-support"></i>
+                </div>
+                <div class="mr-5">13 New Tickets!</div>
+            </div>
+            <a class="card-footer text-white clearfix small z-1" href="#">
+                <span class="float-left">View Details</span>
+                <span class="float-right">
+                    <i class="fa fa-angle-right"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- Area Chart Example-->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-area-chart"></i> Area Chart Example
+    </div>
+    <div class="card-body">
+        <canvas id="myAreaChart" width="100%" height="30"></canvas>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+<div class="row">
+    <div class="col-lg-8">
+        <!-- Example Bar Chart Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-bar-chart"></i> Bar Chart Example
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-8 my-auto">
+                        <canvas id="myBarChart" width="100" height="50"></canvas>
+                    </div>
+                    <div class="col-sm-4 text-center my-auto">
+                        <div class="h4 mb-0 text-primary">$34,693</div>
+                        <div class="small text-muted">YTD Revenue</div>
+                        <hr>
+                        <div class="h4 mb-0 text-warning">$18,474</div>
+                        <div class="small text-muted">YTD Expenses</div>
+                        <hr>
+                        <div class="h4 mb-0 text-success">$16,219</div>
+                        <div class="small text-muted">YTD Margin</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+        <!-- Card Columns Example Social Feed-->
+        <div class="mb-0 mt-4">
+            <i class="fa fa-newspaper-o"></i> News Feed
+        </div>
+        <hr class="mt-2">
+        <div class="card-columns">
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+                <a href="#">
+                    <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=610" alt="">
+                </a>
+                <div class="card-body">
+                    <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
+                    <p class="card-text small">
+                        These waves are looking pretty good today!
+                        <a href="#">#surfsup</a>
+                    </p>
+                </div>
+                <hr class="my-0">
+                <div class="card-body py-2 small">
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-thumbs-up"></i>Like
+                    </a>
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-comment"></i>Comment
+                    </a>
+                    <a class="d-inline-block" href="#">
+                        <i class="fa fa-fw fa-share"></i>Share
+                    </a>
+                </div>
+                <hr class="my-0">
+                <div class="card-body small bg-faded">
+                    <div class="media">
+                        <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+                        <div class="media-body">
+                            <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>Very nice! I wish I was there! That looks amazing!
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a href="#">Like</a>
+                                </li>
+                                <li class="list-inline-item">·</li>
+                                <li class="list-inline-item">
+                                    <a href="#">Reply</a>
+                                </li>
+                            </ul>
+                            <div class="media mt-3">
+                                <a class="d-flex pr-3" href="#">
+                                    <img src="http://placehold.it/45x45" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>Next time for sure!
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <a href="#">Like</a>
+                                        </li>
+                                        <li class="list-inline-item">·</li>
+                                        <li class="list-inline-item">
+                                            <a href="#">Reply</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted">Posted 32 mins ago</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+                <a href="#">
+                    <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=180" alt="">
+                </a>
+                <div class="card-body">
+                    <h6 class="card-title mb-1"><a href="#">John Smith</a></h6>
+                    <p class="card-text small">
+                        Another day at the office...
+                        <a href="#">#workinghardorhardlyworking</a>
+                    </p>
+                </div>
+                <hr class="my-0">
+                <div class="card-body py-2 small">
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-thumbs-up"></i>Like
+                    </a>
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-comment"></i>Comment
+                    </a>
+                    <a class="d-inline-block" href="#">
+                        <i class="fa fa-fw fa-share"></i>Share
+                    </a>
+                </div>
+                <hr class="my-0">
+                <div class="card-body small bg-faded">
+                    <div class="media">
+                        <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+                        <div class="media-body">
+                            <h6 class="mt-0 mb-1"><a href="#">Jessy Lucas</a></h6>Where did you get that camera?! I want one!
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a href="#">Like</a>
+                                </li>
+                                <li class="list-inline-item">·</li>
+                                <li class="list-inline-item">
+                                    <a href="#">Reply</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted">Posted 46 mins ago</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+                <a href="#">
+                    <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=281" alt="">
+                </a>
+                <div class="card-body">
+                    <h6 class="card-title mb-1"><a href="#">Jeffery Wellings</a></h6>
+                    <p class="card-text small">
+                        Nice shot from the skate park!
+                        <a href="#">#kickflip</a>
+                        <a href="#">#holdmybeer</a>
+                        <a href="#">#igotthis</a>
+                    </p>
+                </div>
+                <hr class="my-0">
+                <div class="card-body py-2 small">
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-thumbs-up"></i>Like
+                    </a>
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-comment"></i>Comment
+                    </a>
+                    <a class="d-inline-block" href="#">
+                        <i class="fa fa-fw fa-share"></i>Share
+                    </a>
+                </div>
+                <div class="card-footer small text-muted">Posted 1 hr ago</div>
+            </div>
+            <!-- Example Social Card-->
+            <div class="card mb-3">
+                <a href="#">
+                    <img class="card-img-top img-fluid w-100" src="https://unsplash.it/700/450?image=185" alt="">
+                </a>
+                <div class="card-body">
+                    <h6 class="card-title mb-1"><a href="#">David Miller</a></h6>
+                    <p class="card-text small">
+                        It's hot, and I might be lost...
+                        <a href="#">#desert</a>
+                        <a href="#">#water</a>
+                        <a href="#">#anyonehavesomewater</a>
+                        <a href="#">#noreally</a>
+                        <a href="#">#thirsty</a>
+                        <a href="#">#dehydration</a>
+                    </p>
+                </div>
+                <hr class="my-0">
+                <div class="card-body py-2 small">
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-thumbs-up"></i>Like
+                    </a>
+                    <a class="mr-3 d-inline-block" href="#">
+                        <i class="fa fa-fw fa-comment"></i>Comment
+                    </a>
+                    <a class="d-inline-block" href="#">
+                        <i class="fa fa-fw fa-share"></i>Share
+                    </a>
+                </div>
+                <hr class="my-0">
+                <div class="card-body small bg-faded">
+                    <div class="media">
+                        <img class="d-flex mr-3" src="http://placehold.it/45x45" alt="">
+                        <div class="media-body">
+                            <h6 class="mt-0 mb-1"><a href="#">John Smith</a></h6>The oasis is a mile that way, or is that just a mirage?
+                            <ul class="list-inline mb-0">
+                                <li class="list-inline-item">
+                                    <a href="#">Like</a>
+                                </li>
+                                <li class="list-inline-item">·</li>
+                                <li class="list-inline-item">
+                                    <a href="#">Reply</a>
+                                </li>
+                            </ul>
+                            <div class="media mt-3">
+                                <a class="d-flex pr-3" href="#">
+                                    <img src="http://placehold.it/45x45" alt="">
+                                </a>
+                                <div class="media-body">
+                                    <h6 class="mt-0 mb-1"><a href="#">David Miller</a></h6>
+                                    <img class="img-fluid w-100 mb-1" src="https://unsplash.it/700/450?image=789" alt="">I'm saved, I found a cactus. How do I open this thing?
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <a href="#">Like</a>
+                                        </li>
+                                        <li class="list-inline-item">·</li>
+                                        <li class="list-inline-item">
+                                            <a href="#">Reply</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer small text-muted">Posted yesterday</div>
+            </div>
+        </div>
+        <!-- /Card Columns-->
+    </div>
+    <div class="col-lg-4">
+        <!-- Example Pie Chart Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-pie-chart"></i> Pie Chart Example
+            </div>
+            <div class="card-body">
+                <canvas id="myPieChart" width="100%" height="100"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+        <!-- Example Notifications Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-bell-o"></i> Feed Example
+            </div>
+            <div class="list-group list-group-flush small">
+                <a class="list-group-item list-group-item-action" href="#">
+                    <div class="media">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                        <div class="media-body">
+                            <strong>David Miller</strong>posted a new article to
+                            <strong>David Miller Website</strong>.
+                            <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action" href="#">
+                    <div class="media">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                        <div class="media-body">
+                            <strong>Samantha King</strong>sent you a new message!
+                            <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action" href="#">
+                    <div class="media">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                        <div class="media-body">
+                            <strong>Jeffery Wellings</strong>added a new photo to the album
+                            <strong>Beach</strong>.
+                            <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action" href="#">
+                    <div class="media">
+                        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+                        <div class="media-body">
+                            <i class="fa fa-code-fork"></i>
+                            <strong>Monica Dennis</strong>forked the
+                            <strong>startbootstrap-sb-admin</strong>repository on
+                            <strong>GitHub</strong>.
+                            <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+</div>
+<!-- Example DataTables Card-->
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fa fa-table"></i> Data Table Example
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Office</th>
+                        <th>Age</th>
+                        <th>Start date</th>
+                        <th>Salary</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>Tiger Nixon</td>
+                        <td>System Architect</td>
+                        <td>Edinburgh</td>
+                        <td>61</td>
+                        <td>2011/04/25</td>
+                        <td>$320,800</td>
+                    </tr>
+                    <tr>
+                        <td>Garrett Winters</td>
+                        <td>Accountant</td>
+                        <td>Tokyo</td>
+                        <td>63</td>
+                        <td>2011/07/25</td>
+                        <td>$170,750</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated</div>
+</div>
 
-    <script type="text/javascript">
-    $(document).ready(function() {
-      $("#panel1").click(function() {
-        $("#arow1").toggleClass("fa-chevron-left");
-        $("#arow1").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel2").click(function() {
-        $("#arow2").toggleClass("fa-chevron-left");
-        $("#arow2").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel3").click(function() {
-        $("#arow3").toggleClass("fa-chevron-left");
-        $("#arow3").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel4").click(function() {
-        $("#arow4").toggleClass("fa-chevron-left");
-          $("#arow4").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel5").click(function() {
-        $("#arow5").toggleClass("fa-chevron-left");
-        $("#arow5").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel6").click(function() {
-        $("#arow6").toggleClass("fa-chevron-left");
-        $("#arow6").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel7").click(function() {
-        $("#arow7").toggleClass("fa-chevron-left");
-        $("#arow7").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel8").click(function() {
-        $("#arow8").toggleClass("fa-chevron-left");
-        $("#arow8").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel9").click(function() {
-        $("#arow9").toggleClass("fa-chevron-left");
-        $("#arow9").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel10").click(function() {
-        $("#arow10").toggleClass("fa-chevron-left");
-        $("#arow10").toggleClass("fa-chevron-down");
-      });
-
-      $("#panel11").click(function() {
-        $("#arow11").toggleClass("fa-chevron-left");
-        $("#arow11").toggleClass("fa-chevron-down");
-      });
-
-      $("#menu-icon").click(function() {
-        $("#chang-menu-icon").toggleClass("fa-bars");
-        $("#chang-menu-icon").toggleClass("fa-times");
-        $("#show-nav").toggleClass("hide-sidebar");
-        $("#show-nav").toggleClass("left-sidebar");
-
-        $("#left-container").toggleClass("less-width");
-        $("#right-container").toggleClass("full-width");
-      });
-        
-    });
-    </script>
-</body>
-</html>
