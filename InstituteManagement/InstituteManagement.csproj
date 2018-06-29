@@ -260,6 +260,8 @@
     <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.preloaders.js" />
+    <Content Include="Scripts\jquery.preloaders.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -272,6 +274,7 @@
     <Content Include="Scripts\sb-admin-datatables.min.js" />
     <Content Include="Scripts\sb-admin.min.js" />
     <Content Include="Scripts\teacher.js" />
+    <Content Include="Scripts\teacherlist.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="cs\.gitignore" />
     <Content Include="cs\blank.html" />
@@ -448,6 +451,7 @@
     <Content Include="Views\Admin\Dashboard.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Teacher.cshtml" />
+    <Content Include="Views\Admin\TeacherList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

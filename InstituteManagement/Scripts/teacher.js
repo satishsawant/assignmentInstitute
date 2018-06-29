@@ -1,40 +1,66 @@
 ﻿$(document).ready(function () {
     getDepartment();
 });
+var BaseUrl = "http://45.35.4.250/institutemgmt/api/";
 
 function onClick()
 {
-    debugger;
-    var teacher = new Object();
-    teacher.First_Name = $('#fname').val();
-    teacher.Midde_Name = $('#mname').val();
-    teacher.Last_Name = $('#lname').val();
-    teacher.Address = $('#address').val();
-    teacher.DOB = $('#datetimepickerbirth').val();
-    teacher.City = $('#city').val();
-    teacher.Pin = $('#pin').val();
-    teacher.Country = $('#country').val();
-    teacher.EmergencyContactNo = $('#emergencyno').val();
-    teacher.ContactNo = $('#contactno').val();
-    teacher.EmailID = $('#email').val();
-    teacher.BloodGroup = $('#selectbloodgroup').val();
-    teacher.Designation = $('#designation').val();
-    teacher.Payment = $('#payment').val();;
-    teacher.Photo = '';
-    teacher.IsResume = '0';
-    teacher.DeptId = $('#department').val();
-    teacher.Gender = $("input[name='gender']:checked").val();
-    teacher.UserName = $('#email').val();
-    teacher.Password = $('#contactno').val();
-    teacher.JobType = '1';
-    teacher.WorkType = '2';
+    var teacher = {
+        First_Name: $('#fname').val(),
+        Midde_Name: $('#mname').val(),
+        Last_Name: $('#lname').val(),
+        Address: $('#address').val(),
+        DOB: $('#datetimepickerbirth').val(),
+        JoinDate:$.datepicker.formatDate('yy/mm/dd', new Date()),
+        City: $('#city').val(),
+        Pin: $('#pin').val(),
+        Country: $('#country').val(),
+        EmergencyContactNo: $('#emergencyno').val(),
+        ContactNo: $('#contactno').val(),
+        EmailID: $('#email').val(),
+        BloodGroup: $('#selectbloodgroup').val(),
+        Designation: $('#designation').val(),
+        Payment: $('#payment').val(),
+        Photo: '',
+        IsResume: 'false',
+        DeptId: $('#department').val(),
+        Gender: $("input[name='gender']:checked").val(),
+        UserName: $('#email').val(),
+        Password: $('#contactno').val(),
+        JobType: '1',
+        WorkType: '2'
+    }
+//    var teacher = {
+//"First_Name": "Amitab",
+//        "Midde_Name": "H",
+//        "Last_Name": "Bacchan",
+//        "Address": "Nariman Point",
+//        "DOB": "1964-01-01T00:00:00",
+//        "City": "Mumbai",
+//        "Pin": "431001",
+//        "Country": "India",
+//        "EmergencyContactNo": "7773911718",
+//        "ContactNo": "1234567890",
+//        "EmailID": "amitb@gmail.com",
+//        "BloodGroup": "AB+",
+//        "Designation": "Maths Teacher",
+//        "Payment": 12000,
+//        "Photo": "",
+//        "IsResume": true,
+//        "DeptId": "1",
+//        "Gender": "Male",
+//        "UserName": "amitabh1",
+//        "Password": "aajkhushtobohothoge1",
+//        "JobType": "1",
+//        "WorkType": "1"
+//    }
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:50076/api/Teacher/CreateTeacher",
-        contentType: "application/json; charset=utf-8",
+        url: BaseUrl+"Teacher/CreateTeacher",
+        contentType: "application/json; charset=UTF-8",
         dataType: "json",
-        data: teacher,
+        data: JSON.stringify(teacher),
         success: function (data) {
             alert(data);
         }, //End of AJAX Success function  
@@ -54,7 +80,7 @@ function getDepartment()
     debugger;
     $.ajax({
         type: "GET",
-        url: "http://localhost:50076/api/Department/getdepartment/0",
+        url: BaseUrl+"Department/getdepartment/0",
         contentType: "application/json;",
         dataType: 'json',
         success: function (data) {
@@ -65,6 +91,8 @@ function getDepartment()
             arr=data.departments;
             $.each(arr, function (i, item) {
                     var options = "<option class='dropdown-item' value='" + item.DepartmentID + "'>" + item.Department_Name + "</option>";
+                //var options = "<tr><td>" + item.DepartmentID + "</td>"
+                //+ "<td>" + item.Department_Name + "</td><td><p data-placement='top' data-toggle='tooltip' title='Edit'><button class='btn btn-primary btn-xs' data-title='Edit' data-toggle='modal' onclick='setValueforEdit(" + '"' + item.DepartmentID + '","' + item.Department_Name +'"' + ")' data-target='#edit'><span class='glyphicon glyphicon-pencil'></span></button></p></td><td><p data-placement='top' data-toggle='tooltip' title='Delete'><button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete'><span class='glyphicon glyphicon-trash'></span></button></p></td>";
                     $('#department').append(options);
                 }); //End of foreach Loop   
         }, //End of AJAX Success function  
@@ -78,19 +106,3 @@ function getDepartment()
 
     });
 }
-
-////alert(JSON.stringify(data));                  
-//$("#DIV").html('');
-//var DIV = '';
-//$.each(data, function (i, item) {
-//    var rows = "<tr>" +
-//        "<td id='RegdNo'>" + item.regNo + "</td>" +
-//        "<td id='Name'>" + item.name + "</td>" +
-//        "<td id='Address'>" + item.address + "</td>" +
-//        "<td id='PhoneNo'>" + item.phoneNo + "</td>" +
-//        "<td id='AdmissionDate'>" + Date(item.admissionDate,
-//         "dd-MM-yyyy") + "</td>" +
-//        "</tr>";
-//    $('#Table').append(rows);
-//}); //End of foreach Loop   
-//console.log(data);

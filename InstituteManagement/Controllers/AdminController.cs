@@ -22,6 +22,10 @@ namespace InstituteManagement.Controllers
         {
             return View();
         }
+        public ActionResult TeacherList()
+        {
+            return View();
+        }
         public ActionResult StudentInfo()
         {
             return View();

@@ -16,6 +16,7 @@
     <link href="~/Dashboard/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="~/Dashboard/css/sb-admin.css" rel="stylesheet">
+    <!-- the jquery.preloaders plugin -->
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -39,11 +40,19 @@
 
                     </a>
                 </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-                    <a class="nav-link" href="@Url.Action("TeacherInfo", "Admin")">
-                        <i class="fa fa-fw fa-table"></i>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponentsTeacher" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-wrench"></i>
                         <span class="nav-link-text">Teacher</span>
                     </a>
+                    <ul class="sidenav-second-level collapse" id="collapseComponentsTeacher">
+                        <li>
+                            <a class="nav-link" href="@Url.Action("Teacher", "Admin")">Add Teacher</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="@Url.Action("TeacherList", "Admin")">List Teachers</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
@@ -172,7 +181,7 @@
     </nav>
     <div class="content-wrapper">
         <div class="container">
-            <div>
+            <div style="margin-top:50px; margin-bottom:50px;">
                 @RenderBody()
             </div>
         </div>

@@ -20,7 +20,7 @@
                 <div class="col-md-12">
                     <h3>All Departments</h3>
                     <button class="btn btn-success" data-title="Create" data-toggle="modal" data-target="#create">Add Department</button>
-                    <div class="table-responsive">
+                    <div class="table-responsive" style="margin-top:10px;">
 
                         <table id="mytable" class="table table-striped table-responsive">
                             <thead class="thead-dark">
@@ -32,10 +32,9 @@
                             <tbody id="depttablebody">
 
                             </tbody>
-
                         </table>
                         <div class="clearfix"></div>
-                        <ul class="pagination pull-right">
+                        @*<ul class="pagination pull-right">
                             <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
                             <li class="active"><a href="#">1</a></li>
                             <li><a href="#">2</a></li>
@@ -43,7 +42,7 @@
                             <li><a href="#">4</a></li>
                             <li><a href="#">5</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                        </ul>
+                        </ul>*@
 
                     </div>
 
@@ -52,7 +51,7 @@
         </div>
     </div>
     <!--Dialog for create teacher-->
-    <form data-toggle="validator" role="form">
+    <form data-toggle="validator" id="createform" role="form">
         <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -83,14 +82,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="deptnameedit" placeholder="Enter Departmet Name" name="firstname" required>
+                            <input type="text" class="label" hidden id="editDeptId" />
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="details" placeholder="Enter Department Details" name="details" required></textarea>
+                            <input type="text" class="form-control" id="deptnameedit" placeholder="Enter Departmet Name" name="firstname" required>
                         </div>
                     </div>
                     <div class="modal-footer ">
-                        <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Update</button>
+                        <button type="submit" class="btn btn-warning btn-lg" onclick="updateDept()" style="width: 100%;">Update</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->
