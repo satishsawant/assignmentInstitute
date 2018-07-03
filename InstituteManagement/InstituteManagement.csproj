@@ -298,6 +298,8 @@
     <Content Include="Scripts\dataTables.bootstrap4.js" />
     <Content Include="Scripts\department.js" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\ExpenseType.js" />
+    <Content Include="Scripts\Fees.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
@@ -504,6 +506,8 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Teacher.cshtml" />
     <Content Include="Views\Admin\TeacherList.cshtml" />
+    <Content Include="Views\ExpenseMst\Index.cshtml" />
+    <Content Include="Views\Admin\ExpenseType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
