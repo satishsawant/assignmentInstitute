@@ -46,17 +46,11 @@ function getTeacherList() {
             var teachers = data.Success;
             var arr = [];
             arr = data.Teacher;
-            if (arr.length > 0) {
-                $.each(arr, function (i, item) {
-                    var dept = getDepartmentById(item.DeptId);
-                    var options = "<tr><td>" + item.First_Name + " " + item.Last_Name + "</td>" + "<td>" + item.Gender + "</td><td>" + item.ContactNo + "</td><td>" + item.City + "</td><td>" + item.Country + "</td><td>" + item.Pin + "</td><td>" + item.Payment + "</td><td>" + item.Designation + "</td><td><p data-placement='top' data-toggle='tooltip' title='Edit'><button class='btn btn-primary btn-xs' data-title='Edit' onclick='editTeacher(" + item + ")' data-toggle='modal' data-target='#edit'><span class='glyphicon glyphicon-pencil'></span></button></p></td><td><p data-placement='top' data-toggle='tooltip' title='Delete'><button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete'><span class='glyphicon glyphicon-trash'></span></button></p></td>";
-                    $('#teachertablebody').append(options);
-                }); //End of foreach Loop   
-            }
-            else {
-                $('#teachertablebody').append("<tr><td colspan='10'> No Teachers are available </td></tr>");
-            }
-
+            $.each(arr, function (i, item) {
+                var dept = getDepartmentById(item.DeptId);
+                var options = "<tr><td>" + item.First_Name + " " + item.Last_Name + "</td>" + "<td>" + item.Gender + "</td><td>" + item.ContactNo + "</td><td>" + item.City + "</td><td>" + item.Country + "</td><td>" + item.Pin + "</td><td>" + item.Payment + "</td><td>" + item.Designation + "</td><td><p data-placement='top' data-toggle='tooltip' title='Edit'><button class='btn btn-primary btn-xs' data-title='Edit' onclick='editTeacher(" + item + ")' data-toggle='modal' data-target='#edit'><span class='glyphicon glyphicon-pencil'></span></button></p></td><td><p data-placement='top' data-toggle='tooltip' title='Delete'><button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete'><span class='glyphicon glyphicon-trash'></span></button></p></td>";
+                $('#teachertablebody').append(options);
+            }); //End of foreach Loop   
         }, //End of AJAX Success function  
 
         failure: function (data) {

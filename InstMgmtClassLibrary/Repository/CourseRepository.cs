@@ -115,7 +115,7 @@ namespace InstMgmtClassLibrary.Repository
             {
                 using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["InstCon"].ConnectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("", sqlconnection);
+                    SqlCommand cmd = new SqlCommand("SP_UpdateCouseInfo", sqlconnection);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Name", course.CourseName);
                     cmd.Parameters.AddWithValue("@CourseTypeID", course.CourseTypeId);
@@ -224,7 +224,7 @@ namespace InstMgmtClassLibrary.Repository
             {
                 using (var sqlconnection = new SqlConnection(ConfigurationManager.ConnectionStrings["InstCon"].ConnectionString))
                 {
-                    SqlCommand cmd = new SqlCommand("SP_UpdateCouseType", sqlconnection);
+                    SqlCommand cmd = new SqlCommand("SP_UpdateCourseType", sqlconnection);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@CourseTypeId", coursetype.CourseTypeId);
                     cmd.Parameters.AddWithValue("@coursetypename", coursetype.CourseTypeName);

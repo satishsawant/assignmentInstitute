@@ -22,7 +22,11 @@ namespace InstMgmtClassLibrary.Interface
         /// <param name="Course"></param>
         /// <returns></returns>
         int CreateBank(Bank bank);
+        int UpdateBank(Bank bank);
 
+
+        //Bank Transaction
+        IList<BankTrn> GetAll();
         int CreateBankTrn(BankTrn banktrn);
 
     }

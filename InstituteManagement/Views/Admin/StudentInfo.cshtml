@@ -44,7 +44,19 @@
                 }
             });
         });
-        
+        @Scripts.Render("~/bundles/jqueryui")
+@Styles.Render("~/Content/cssjqryUi")
+
+ 
+     $(document).ready(function () {
+         $('input[type=datetime]').datepicker({
+             dateFormat: "dd/M/yy",
+             changeMonth: true,
+             changeYear: true,
+             yearRange: "-60:+0"
+         });
+
+     });
     </script>
 </head>
 <body>
@@ -67,7 +79,6 @@
                             <th scope="col">Last Name</th>
                             <th scope="col">Address</th>
                             <th scope="col">Mobile No</th>
-                            
                             <th scope="col">Gender</th>
                             <th scope="col">Blood Group</th>
                             <th scope="col">DOB</th>
@@ -96,7 +107,7 @@
             </div>
         </div>
     </div>
-    <!--Dialog for create feestranscation-->
+    <!--Dialog for create Student-->
     <form data-toggle="validator" role="form">
         <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
@@ -106,7 +117,6 @@
                         <h4 class="modal-title custom_align" id="Heading">Add Student</h4>
                     </div>
                     <div class="modal-body">
-                        
                         <div class="row">
                             <div class="col-xs-12 col-sm-4 col-md-4">
                                 <div class="form-group">
@@ -125,12 +135,12 @@
                                 </div>
                              </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Enter Email" name="Email" required>
+                                <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="input">Gender</label>
-                                <label class="radio"><input type="radio" class="radio" name="gender_option" value="Male">Male</label>
-                                <label class="radio"><input type="radio" class="radio" name="gender_option" value="Female">Female</label>
+                                <label class="radio"><input type="radio" class="radio" name="gender_option">Male</label>
+                                <label class="radio"><input type="radio" class="radio" name="gender_option">Female</label>
                             </div>
                             <div class="form-group">
                                 <input type="number" class="form-control" placeholder="Enter Mobile No" id="MobNo" required>
