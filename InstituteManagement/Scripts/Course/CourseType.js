@@ -6,10 +6,17 @@ var BaseURL = "http://45.35.4.250/institutemgmt/api/";
 
 //GEt All Course Type
 function GetCourseType() {
+<<<<<<< HEAD
     debugger;
     $.ajax({
         type: "GET",
         url: BaseURL + "Course/GetAllCourseType",
+=======
+   
+    $.ajax({
+        type: "GET",
+        url: BaseURL + "Course/getallcoursetype",
+>>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
         contentType: "application/json;",
         dataType: "json",
         success: function (data) {
@@ -18,7 +25,11 @@ function GetCourseType() {
             arr = data;
             $.each(arr, function (i, item) {
                 //var options = "<option class='dropdown-item' value=" + item.CourseID + ">" + item.CourseTypeName + "</option>";
+<<<<<<< HEAD
                 var options = "<tr><td>" + item.CourseTypeId + "</td><td>" + item.CourseTypeName + "</td><td><p data-placement='top' data-toggle='tooltip' title='Edit'><button class='btn btn-primary btn-xs' onclick='setValueForEdit(" + '"' + item.CourseTypeId + '","' + item.CourseTypeName + '"' + ")' data-title='Edit' data-toggle='modal' data-target='#edit'><span class='glyphicon glyphicon-pencil'></span></button></p></td>";
+=======
+                var options = "<tr><td>" + item.CourseTypeId + "</td><td>" + item.CourseTypeName + "</td><td><p data-placement='top' data-toggle='tooltip' title='Edit'><button class='btn btn-primary btn-xs' onclick='setValueForEdit(" + '"' + item.CourseTypeId + '","' + item.CourseTypeName + '"' + ")' data-title='Edit' data-toggle='modal' data-target='#edit'><span class='glyphicon glyphicon-pencil'></span></button></p></td><td><p data-placement='top' data-toggle='tooltip' title='Delete'><button class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#delete'><span class='glyphicon glyphicon-trash'></span></button></p></td>";
+>>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
                 $('#coursetypebody').append(options);
             }); //End of foreach Loop   
         }, //End of AJAX Success function  
@@ -45,7 +56,11 @@ function CourseTypeCreate() {
         dataType: "json",
         data: JSON.stringify(course),
         success: function (data) {
+<<<<<<< HEAD
             alert("Create Succesfully");
+=======
+            alert(data);
+>>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
         },
 
         failure: function (data) {
@@ -78,9 +93,14 @@ function CourseTypeEdit() {
         dataType: "json",
         data: JSON.stringify(course),
         success: function (data) {
+<<<<<<< HEAD
             if (data = 'success')
            { alert('Updated Successfully') }
         }, //End of AJAX Success function  
+=======
+            alert(data);
+        },
+>>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
 
         failure: function (data) {
             alert(data.responseText);
@@ -88,11 +108,40 @@ function CourseTypeEdit() {
         error: function (data) {
             alert(data.responseText);
         } //End of AJAX error function  
+<<<<<<< HEAD
 
     });
     $('#edit').modal('toggle');
 }
 
+=======
+    });
+}
+
+//$("body").on("click", "#coursesave", function () {
+//    var Courtype = $("#coursetype");
+//    var Courcheck = $("#coursecheck");
+//    var course = {};
+//    course.CourseType = Courtype.val();
+//    course.CourseCheck = Courcheck.val();
+//    $.ajax({
+//        type: "POST",
+//        url: "/api/AjaxAPI/InsertCustomer",
+//        data: JSON.stringify(_customer),
+//        contentType: "application/json; charset=utf-8",
+//        dataType: "json",
+//        success: function (c) {
+//            var row = $("#tblCustomers tr:last-child").clone(true);
+//            AppendRow(row, c.CourseTypeID, c.CourseTypeName, c.IsActive);
+//            Courtype.val("");
+//            Courcheck.val("");
+//        }
+//    });
+//});
+
+
+
+>>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
 //Delete ourse Type
 function CourseTypeDelete() {
     $.ajax({

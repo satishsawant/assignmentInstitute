@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 ﻿$(document).ready(function () {
     GetAllLeaveType();
 });
 var BaseURL = "http://45.35.4.250/institutemgmt/api/";
 
 //GET Leavetype By Id
+=======
+﻿//GET Leavetype By Id
+>>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
 function GetLeaveTypeById() {
     $.ajax({
         type: "GET",
@@ -26,6 +30,7 @@ function GetLeaveTypeById() {
         }
     });
 }
+<<<<<<< HEAD
 
 //GetAll Leavetype
 function GetAllLeaveType() {
@@ -60,10 +65,42 @@ function GetAllLeaveType() {
 function CreateLeaveType() {
     debugger;
     var leave = {
+=======
+//GetAll Leavetype
+function GetAllLeaveType() {
+    $.ajax({
+        type: "GET",
+        url: "/api/Leave/GetAllLeaveType",
+        contentType: "json",
+        dataType: "json",
+        success: function (data) {
+
+            $.each(data, function (key, value) {
+                //stringify
+                var jsonData = JSON.stringify(value);
+                //Parse JSON
+                var objData = $.parseJSON(jsonData);
+                var id = objData.LeaveTypeID;
+                var name = objData.LeaveTypeName;
+              
+                AppendTo('#coursetable');
+
+            });
+        },
+        error: function () {
+            alert("Error");
+        }
+    });
+}
+//Add Leavetype
+function CreateLeaveType() {
+    var cors = {
+>>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
         "LeaveTypeName": $("#leavetype").val()
     };
     $.ajax({
         type: 'POST',
+<<<<<<< HEAD
         url: BaseURL+"Leave/CreateLeaveType",
         data: JSON.stringify(leave),
         contentType: "application/json",
@@ -87,11 +124,27 @@ function setValueForEdit(id, name) {
     //debugger;
     $('#leavetypeid').val(id);
     $('#editleavetype').val(name);
+=======
+        url: '/api/Leave/CreateLeaveType',
+        data: JSON.stringify(cors),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        cache: false,
+        success: function (data) {
+            alert("Create Leave Type Successfully");
+        },
+        error: function () {
+            alert('error');
+
+        }
+    })
+>>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
 }
 
 //Edit Leavetype 
 function EditLeaveType() {
     var cors = {
+<<<<<<< HEAD
         "LeaveTypeName": $("#editleavetype").val()
     };
     $.ajax({
@@ -131,3 +184,38 @@ function LeaveDelete() {
         }
     });
 }
+=======
+        "LeaveTypeName": $("#leavetype").val()
+    };
+    $.ajax({
+        type: 'PUT',
+        url: '/api/Leave/UpdateLeaveType',
+        data: JSON.stringify(courseEdit),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        cache: false,
+        success: function (data) {
+            alert("Edit Leave Type Successfully");
+        },
+        error: function () {
+            alert('error');
+
+        }
+    })
+}
+////Delete Leavetype Type
+//function LeaveDelete() {
+//    $.ajax({
+//        type: "DELETE",
+//        url: '/api/Leave/DeleteCourseType',
+//        contentType: "json",
+//        dataType: "json",
+//        success: function (data) {
+//            alert("success.... " + data);
+//        },
+//        error: function (xhr) {
+//            alert(xhr.responseText);
+//        }
+//    });
+//}
+>>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
