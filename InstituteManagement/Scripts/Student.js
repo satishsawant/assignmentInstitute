@@ -20,7 +20,7 @@ function AddNewStudent() {
         BloodGroup: $('#bloodGrpOps').val(),
         Photo: $('#photo').val(),
         DeptId: $('#department').val(),
-        Gender: $(".radio:checked").val(),
+        Gender: $("input[name='gender_option']:checked").val(),
         DateOfBirth: $('#datetimepicker').val(),
         ParentsName: $('#PartNm').val(),
         ParentsMobileNo: $('#PartMobNo').val(),
@@ -53,7 +53,7 @@ function GetAllStudents() {
     debugger;
     $.ajax({
         type: "GET",
-        url: "http://45.35.4.250/institutemgmt/api/student/GetStudent/0",
+        url: "http://45.35.4.250/institutemgmt/api/student/GetStudents/0",
         contentType: "application/json;",
         dataType: "json",
         success: function (data) {
@@ -82,8 +82,9 @@ function GetAllStudents() {
                 var depid = objData.DeptId;
                 var un = objData.UserName;
                 var pass = objData.Password;
-                var pass = objData.Pincode;
-                var email = objData.EmailID;
+                var pin = objData.Pincode;
+               
+               // var email = objData.EmailID;
                
 
 
@@ -109,7 +110,6 @@ function EditStudent(key) {
     if (window.stud) {
         var stud = window.stud[key];
         $('#StudentEditModel').modal('show');
-    
         $('#editfirst').val(stud.First_Name);
         $('#editMiddle').val(stud.Middle_Name);
         $('#editLast').val(stud.Last_Name);
@@ -120,16 +120,17 @@ function EditStudent(key) {
         $('#editpincode').val(stud.Pincode);
         $('#editEmrgNo').val(stud.EmergencyContactNo);
         $('#editMobNo').val(stud.ContactNo);
-        $('#editemail').val(stud.EmailID);
-      
+       // $('#editEmail').val(stud.EmailID);
         $('#editbloodGrpOps').val(stud.BloodGroup);
         $('#editphoto').val(stud.Photo);
         $('#editdepartment').val(stud.DepartmentID);
         $('#editdatetimepicker').val(stud.DateOfBirth);
         $('#editPartNm').val(stud.ParentsName);
         $('#editPartMobNo').val(stud.ParentsMobileNo);
-       
+        //$('#editgender_option').val(stud.Gender);
 
+       
+         
     }
 }
 function setValueforEdit() {
@@ -159,6 +160,7 @@ function getDepartment() {
             $.each(arr, function (i, item) {
                 var options = "<option class='dropdown-item' value='" + item.DepartmentID + "'>" + item.Department_Name + "</option>";
                 $('#department').append(options);
+                $('#editdepartment').append(options);
             }); //End of foreach Loop   
         }, //End of AJAX Success function  
 
@@ -190,32 +192,33 @@ function DeleteStudent() {
 
 function UpdateStudent() {
     debugger;
+     
     var studentData = {
-        First_Name: $('#first').val(),
-        Middle_Name: $('#Middle').val(),
-        Last_Name: $('#Last').val(),
-        Address1: $('#address1').val(),
-        Address2: $('#address2').val(),
-        City: $('#city').val(),
-        Pincode: $('#pincode').val(),
-        Country: $('#country').val(),
-        EmergencyContactNo: $('#EmrgNo').val(),
-        ContactNo: $('#MobNo').val(),
-        EmailID: $('#email').val(),
-        BloodGroup: $('#bloodGrpOps').val(),
-        Photo: $('#photo').val(),
-        DeptId: $('#department').val(),
-        Gender: $(".radio:checked").val(),
-        DateOfBirth: $('#datetimepicker').val(),
-        ParentsName: $('#PartNm').val(),
-        ParentsMobileNo: $('#PartMobNo').val(),
-        UserName: $('#UserName').val(),
-        Password: $('#Password').val(),
+        StudentID : $('#studid').val(),
+        First_Name: $('#editfirst').val(),
+        Middle_Name: $('#editMiddle').val(),
+        Last_Name: $('#editLast').val(),
+        Address1: $('#editaddress1').val(),
+        Address2: $('#editaddress2').val(),
+        City: $('#editcity').val(),
+        Pincode: $('#editpincode').val(),
+        Country: $('#editcountry').val(),
+        EmergencyContactNo: $('#editEmrgNo').val(),
+        ContactNo: $('#editMobNo').val(),
+        EmailID: $('#editEmail').val(),
+        BloodGroup: $('#editbloodGrpOps').val(),
+        Photo: $('#editphoto').val(),
+        DeptId: $('#editdepartment').val(),
+        Gender: $("input[name='editgender_option']:checked").val(),
+        DateOfBirth: $('#editdatetimepicker').val(),
+        ParentsName: $('#editPartNm').val(),
+        ParentsMobileNo: $('#editPartMobNo').val(),
+       
     };
 
     $.ajax({
         type: "POST",
-        url: BaseUrl + "http://45.35.4.250/institutemgmt/api/student/UpdateStudent",
+        url:"http://45.35.4.250/institutemgmt/api/student/UpdateStudent",
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify(studentData),

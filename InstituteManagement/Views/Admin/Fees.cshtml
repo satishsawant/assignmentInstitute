@@ -39,24 +39,17 @@
 
                         <table id="mytable" class="table table-striped table-responsive">
                             <thead class="thead-dark">
-                            <th scope="col">Student ID </th>
-                            <th scope="col">Student Name </th>
-                            <th scope="col">Collection Date</th>
-                            <th scope="col">Payment Method</th>
-                            <th scope="col">Payment Status</th>
-                            <th scope="col">Amount</th>
+                            <th scope="col">FeesTranscationID </th>
+                            <th scope="col">StudentID</th>
+                            <th scope="col">CourseID</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Fees Paid</th>
+                            
                             <th scope="col">Edit</th>
                             <th scope="col">Delete</th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Mohsin</td>
-                                    <td>Commerce</td>
-                                    <td>Mohsin</td>
-                                    <td>Commerce</td>
-                                    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete"><span class="glyphicon glyphicon-trash"></span></button></p></td>
-                                </tr>
+                                
                             </tbody>
 
                         </table>
@@ -77,18 +70,18 @@
             </div>
         </div>
     </div>
-    <!--Dialog for create course-->
+    <!--Dialog for create fees transcation-->
     <form data-toggle="validator" role="form">
         <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                        <h4 class="modal-title custom_align" id="Heading">Course Details</h4>
+                        <h4 class="modal-title custom_align" id="Heading">Fees Transcation Details</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Enter Student ID" name="studId" required />
+                            <input type="number" class="form-control" placeholder="Enter Student ID" name="studId" id="studid" required />
 
                         </div>
                         <div class="form-group">
@@ -96,15 +89,14 @@
                         </div>
                         <div class="form-group">
                             <div class="form-group">
-                                <label for="text">Department/Class</label>
-                                <select class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" required>
-                                    <option class="dropdown-item" href="#">leave 1</option>
-                                    <option class="dropdown-item" href="#">leave 2</option>
+                                <label for="text">Course</label>
+                                <select class="btn btn-info dropdown-toggle dropdown-toggle-split" id="course" data-toggle="dropdown" required>
+                                    <option class="dropdown-item" href="#">Select </option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="amount" placeholder="Enter Amount" required>
+                            <input type="number" class="form-control" name="amount" placeholder="Enter Amount" id="amt" required>
 
                         </div>
 
@@ -137,10 +129,7 @@
                                 <option class="dropdown-item" href="#">Pending</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="address" placeholder="Enter Address" name="addr" required></textarea>
-
-                        </div>
+                        
                     </div>
                     <div class="modal-footer ">
                         <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Create</button>
@@ -156,11 +145,11 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+                        <h4 class="modal-title custom_align" id="Heading">Edit Transcation Detail</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="number" class="form-control" placeholder="Enter Student ID" name="studId" required />
+                            <input type="number" class="form-control" placeholder="Enter Student ID" name="studId" id="editstudid" required />
 
                         </div>
                         <div class="form-group">
@@ -168,21 +157,20 @@
                         </div>
                         <div class="form-group">
                             <div class="form-group">
-                                <label for="text">Department/Class</label>
-                                <select class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" required>
-                                    <option class="dropdown-item" href="#">leave 1</option>
-                                    <option class="dropdown-item" href="#">leave 2</option>
+                                <label for="text">Course</label>
+                                <select class="btn btn-info dropdown-toggle dropdown-toggle-split" id="editcourse" data-toggle="dropdown" required>
+                                    <option class="dropdown-item" href="#">Select </option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="amount" placeholder="Enter Amount" required>
+                            <input type="number" class="form-control" name="amount" placeholder="Enter Amount" id="editamt" required>
 
                         </div>
 
                         <div class="form-group">
                             <div>
-                                <input type='datetime' class="form-control" id='datetimepicker' placeholder="Collection Date" required />
+                                <input type='datetime' class="form-control" id='editdatetimepicker' placeholder="Collection Date" required />
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-calendar"></span>
                                 </span>
@@ -209,10 +197,7 @@
                                 <option class="dropdown-item" href="#">Pending</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="address" placeholder="Enter Address" name="addr" required></textarea>
-
-                        </div>
+                        <
                     </div>
                     <div class="modal-footer ">
                         <button type="submit" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span>Update</button>
@@ -223,13 +208,13 @@
             <!-- /.modal-dialog -->
         </div>
 
-        <!--Dialog for delete-->
+        <!--Dialog for delete fees transcation-->
         <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+                        <h4 class="modal-title custom_align" id="Heading">Delete Transcation entry</h4>
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Fees Record?</div>

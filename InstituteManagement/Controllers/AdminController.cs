@@ -54,5 +54,9 @@ namespace InstituteManagement.Controllers
         {
             return View();
         }
+        public ActionResult ExpenseMst()
+        {
+            return View();
+        }
     }
 }
