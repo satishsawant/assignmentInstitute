@@ -31,6 +31,7 @@ namespace InstituteManagementAPI.Controllers
         /// </summary>
         /// <param name="Course"></param>
         /// <returns></returns>
+        
         [HttpPost]
         [Route("CreateBank")]
         public IHttpActionResult CreateBank(Bank bank)
@@ -39,7 +40,23 @@ namespace InstituteManagementAPI.Controllers
             return Ok(NewBank);
         }
         [HttpPost]
-        [Route("CreateBank")]
+        [Route("UpdateBank")]
+        public IHttpActionResult UpdateBank(Bank bank)
+        {
+            var NewBank = _repository.UpdateBank(bank);
+            return Ok(NewBank);
+        }
+
+        // Bank Transaction
+        [HttpGet]
+        [Route("GetAllBankTrn")]
+        public IHttpActionResult GetAllBankTrn()
+        {
+            var banktrns = _repository.GetAllBankTrn();
+            return Ok(banktrns);
+        }
+        [HttpPost]
+        [Route("CreateBankTrn")]
         public IHttpActionResult CreateBankTrn(BankTrn banktrn)
         {
             var NewBankTrn = _repository.CreateBankTrn(banktrn);

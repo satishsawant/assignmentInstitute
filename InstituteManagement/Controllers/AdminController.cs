@@ -54,5 +54,17 @@ namespace InstituteManagement.Controllers
         {
             return View();
         }
+        public ActionResult Bank()
+        {
+            return View();
+        }
+        public ActionResult BankTran()
+        {
+            return View();
+        }
+        public ActionResult Enquiry()
+        {
+            return View();
+        }
     }
 }
