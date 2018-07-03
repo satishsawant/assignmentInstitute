@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿$(document).ready(function){
     GetAllLeave();
     GetAllLeaveType();
@@ -6,9 +5,7 @@
 var BaseURL = "http://45.35.4.250/institutemgmt/api/";
 
 //GET Leave By Id
-=======
 ﻿//GET Leave By Id
->>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
 function GetLeaveById() {
     $.ajax({
         type: "GET",
@@ -34,15 +31,11 @@ function GetLeaveById() {
         }
     });
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
 //GetAll Leave
 function GetAllLeave() {
     $.ajax({
         type: "GET",
-<<<<<<< HEAD
         url: BaseURL+"Leave/GetAll",
         contentType: "application/json",
         dataType: "json",
@@ -150,7 +143,6 @@ function changeApproveStatus(leaveid, ele) {
 
 
 
-=======
         url: "/api/Leave/Get",
         contentType: "json",
         dataType: "json",
@@ -202,4 +194,3 @@ function CreateLeave() {
     })
 }
 
->>>>>>> 8cc6848140123ceae76ac7f81b965d492e5e97df
